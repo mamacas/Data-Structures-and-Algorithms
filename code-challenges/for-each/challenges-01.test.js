@@ -138,9 +138,18 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
   const answerArr = [];
-  
+  arr.forEach (number => {
+    if (number % 15 === 0) {
+      answerArr.push('Fizz Buzz');
+    } else if (number % 5 === 0) {
+      answerArr.push('Buzz');
+    } else if (number % 3 === 0) {
+      answerArr.push('Fizz');
+    } else { answerArr.push(number);}
+  }
+  );
+  return answerArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
