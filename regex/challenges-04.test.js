@@ -13,9 +13,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
-  let reg1 = /\d/.test(input);
-  };
+  let checkthis = /[0-9]/g;
+  return checkthis.test(input);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -25,9 +25,7 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) => {
-  // Solution code here...
-};
+const isCapitalized = (str) => str.match(/[A-Z]\w+/g) || [];
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -36,7 +34,13 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let solArr = [];
+  arr.forEach(value => {
+    if(value.match(new RegExp('^[A-J].*'))){
+      solArr.push(value);
+    }
+  });
+  return solArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,9 +55,7 @@ If the user enters any of these four inputs, return true. For any other input, r
 Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
-const matchMonth = (input) => {
-  // Solution code here...
-};
+const matchMonth = (input) => input.toString().match(/^[Oo]ct(ober)?$/);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -66,7 +68,8 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  const checkfive = /\w+\s/gm;
+  return str.match(checkfive);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,9 +84,7 @@ The function should return a string containing the consonants in their original 
 For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
-let hangman = (str) => {
-  // Solution code here...
-};
+let hangman = (str) => str.replace(/[aeiou]/gi, '_');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
