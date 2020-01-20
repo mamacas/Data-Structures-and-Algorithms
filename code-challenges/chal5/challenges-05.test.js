@@ -15,9 +15,10 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  let w = str.slice(-1);
-  result.push(w);
-
+  for (let i = 0; i < (str.length + 1); i++) {
+    let w = str.slice(i);
+    result.push(w);
+  }
   return result;
 };
 
@@ -78,10 +79,11 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  gruffaloCrumble.ingredients.forEach (line => {
-    let ings = recipe.ingredients.slice(2);
-    result.push(ings);
-  });
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    let startIdx = recipe.ingredients[i].indexOf(' ');
+    let ing = recipe.ingredients[i].slice(recipe.ingredients[i].indexOf(' ', startIdx + 1) + 1);
+    result.push(ing);
+  }
   return result;
 };
 
@@ -95,8 +97,14 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  let ing = recipe.split(something);
-  result.push(ing);
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    let ing = recipe.ingredients[i].split(' ');
+    result.push(ing);
+  }
+  for (let j = 0; j < result.length; j++) {
+    result[j].splice(0, 2);
+    result[j] = result[j].join(' ');
+  }
   return result;
 };
 
@@ -112,7 +120,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  for (let i = 0; i < recipe.steps.length; i++) {
+    let verbs = recipe.steps[i].split(' ').slice(0,1).join();
+    result.push(verbs);
+  }
   return result;
 };
 
@@ -130,7 +141,12 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  // why doesn't this catch 66?
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      arr.splice(i, 1);
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
