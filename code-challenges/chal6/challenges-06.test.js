@@ -13,8 +13,8 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
-  //typesomethingasatest
+  let properties = Object.keys(courseInfo);
+  return properties;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,7 +71,9 @@ let characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  for (let i = 0; i < characters.length; i++) {
+    houses.push(characters[i].house);
+  }
   return houses;
 };
 
@@ -88,8 +90,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  for (let i = 0; i < characters.length; i++) {
+    let kidsOrNah = Object.values(characters[i].children);
+    if (kidsOrNah.length > 0) {
+      return true;
+    } else {return false;}
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,7 +117,7 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
