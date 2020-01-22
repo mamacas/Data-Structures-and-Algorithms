@@ -90,11 +90,13 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  for (let i = 0; i < characters.length; i++) {
-    let kidsOrNah = Object.values(characters[i].children);
-    if (kidsOrNah.length > 0) {
-      return true;
-    } else {return false;}
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === character) {
+      let kidsOrNah = Object.values(arr[i].children);
+      if (kidsOrNah.length > 0) {
+        return true;
+      } else {return false;}
+    }
   }
 };
 
@@ -107,7 +109,14 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === character) {
+      let kidsOrNah = arr[i].children;
+      if (kidsOrNah.length > 0) {
+        return true;
+      } else {return false;}
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,7 +126,20 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-
+  let characterCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name) {
+      characterCount++;
+    }
+    if (arr[i].spouse) {
+      characterCount++;
+    }
+    if (arr[i].children) {
+      let kidCount = (arr[i].children.length);
+      characterCount += kidCount;
+    }
+  }
+  return characterCount;
 };
 
 /* ------------------------------------------------------------------------------------------------
