@@ -23,7 +23,20 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+
+  let hourlySales = [];
+
+  for (let i = 0; i < stores.length; i++) {
+    for (let j = 0; j < stores[i].length; j++) {
+      let hourtotal = stores[i][j];
+
+      if (hourlySales[j]){
+        hourlySales[j] = hourlySales[j] + hourtotal;
+      } else { hourlySales[j] = hourtotal; }
+
+    }
+  }
+  return hourlySales;
 
 };
 
@@ -38,7 +51,18 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let resultarr = [];
+
+  for (let i = 0; i < hoursOpen.length; i++) {
+    let sales = {};
+
+    sales['sales'] = `${data[i]} cookies`;
+    sales['time'] = hoursOpen[i];
+
+    resultarr.push(sales);
+  }
+
+  return resultarr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +84,8 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let petStoreArr = arr[2].items;
+  return petStoreArr[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,7 +107,17 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+
+  for (let i = 0; i < board[row].length; i++) {
+    for (let j = 0; j < board[col].length; j++) {
+      if (board[row][col] === '#') {
+        return 'hit';
+      } else if (board[i][j] === ' ') {
+        return 'miss';
+      }
+    }
+  }
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,7 +129,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let bignum = [];
+  for (let i = 0; i < numbers.length; i++) {
+    let tomult = numbers[i].reduce((a, b) => (a * b));
+    bignum.push(tomult);
+  }
+  let result = bignum.reduce((a, b) => (a * b));
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,7 +155,16 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  let toAvg = [];
+  for (let i = 0; i < weather.length; i++) {
+    for (let j = 0; j < weather[i].length; j++) {
+      let alldays = weather[i][j];
+      toAvg.push(alldays);
+    }
+  }
+  let added = (toAvg.reduce((a, b) => (a + b)));
+  let result = (added/toAvg.length);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +185,14 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let avgsArr = [];
+  for (let i = 0; i < weather.length; i++) {
+    let added = (weather[i].reduce((a, b) => (a + b)));
+    let averaged = (added / weather[i].length);
+    avgsArr.push(averaged);
+  }
+  let minval = Math.min.apply(Math, avgsArr);
+  return minval;
 };
 
 /* ------------------------------------------------------------------------------------------------
