@@ -53,14 +53,14 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 const salesData = (hours, data) => {
   let resultarr = [];
 
-  for (let i = 0; i < hoursOpen.length; i++) {
+  hours.forEach((hour, i) => {
     let sales = {};
 
     sales['sales'] = `${data[i]} cookies`;
-    sales['time'] = hoursOpen[i];
+    sales['time'] = hour;
 
     resultarr.push(sales);
-  }
+  });
 
   return resultarr;
 };
@@ -129,13 +129,19 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  let bignum = [];
-  for (let i = 0; i < numbers.length; i++) {
-    let tomult = numbers[i].reduce((a, b) => (a * b));
-    bignum.push(tomult);
-  }
-  let result = bignum.reduce((a, b) => (a * b));
-  return result;
+
+  return numbers.map(arr => {
+    if (arr.length > 0) {
+      return arr.reduce((acc, cur) => {
+        return acc * cur;
+      });
+    } else {
+      return 1;
+    }
+  }).reduce((acc, cur) => {
+    return acc * cur;
+  });
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -208,7 +214,16 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let splitString = str.split('\n');
+  let comm = splitString.map(arr=> {
+    return arr.split(',');
+  });
+
+  return comm.map(arr => {
+    return arr.reduce((acc, cur) => {
+      return parseInt(acc) + parseInt(cur);
+    });
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
