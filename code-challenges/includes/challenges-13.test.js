@@ -9,7 +9,12 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i];
+    result.push(word.charAt(0));
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,7 +26,14 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let str = arr[i];
+    if (str.includes(':)')) {
+      result.push(str);
+    }
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,7 +45,15 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let digits = arr[i];
+    console.log('from key: ', digits);
+    let onlydigits = digits.replace('-', '').replace(' ', '').replace('(', '').replace(')', '');
+
+    result.push(onlydigits);
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +65,16 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let odds = [];
+  let arr = str.split('');
+  console.log(arr);
+
+  for (let i = 0; i < arr.length; i +=2) {
+    arr[i+1] && odds.push(arr[i + 1]);
+  }
+
+  let result = odds.join('');
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +84,15 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+
+  const isHappy = (val) => val.includes(':)');
+
+  if (arr.every(isHappy)) {
+    return true;
+  } else {
+    return false;
+  }
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +102,14 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let str = arr[i];
+    if (str.includes(target)) {
+      result.push(str);
+    }
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +119,15 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+
+  const isHappy = (val) => val.includes(target);
+
+  if (arr.every(isHappy)) {
+    return true;
+  } else {
+    return false;
+  }
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,7 +143,20 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+
+    for (let j = 0; j < arr[i].length; j++) {
+
+      let str = arr[i][j];
+      console.log(str);
+
+      if (str.includes('Brook')) {
+        arr[i].splice(j, 1);
+      }
+
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
