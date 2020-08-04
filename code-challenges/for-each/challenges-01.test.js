@@ -37,7 +37,7 @@ const addValues = (arr, value) => {
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  for (let i = 0; i < times; i++) {
+  for(let i = 0; i < times; i++) {
     callback(arr, num);
   }
   return arr;
@@ -56,7 +56,10 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  if (num % 3 === 2) arr.pop();
+  if (num % 3 === 2) {
+    arr.pop();
+  }
+  return arr;
 };
 
 const removeElements = (arr, callback) => {
@@ -73,7 +76,7 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  arr.forEach((num) => callback(num, arr));
+  arr.forEach(element => callback(element, arr));
   return arr;
 };
 
@@ -88,8 +91,8 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  arr.forEach((element) => {
-    if(element % 3 === 2) {
+  arr.forEach((element, idx, arr) => {
+    if (arr[idx] % 3 === 2) {
       arr.pop();
     }
   });
@@ -114,9 +117,9 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  const list = [];
-  availableItems.forEach (item => {
-    if(item.available) {
+  let list = [];
+  availableItems.forEach((item) => {
+    if (item.available) {
       list.push(item.name);
     }
   });
@@ -138,18 +141,16 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  const answerArr = [];
-  arr.forEach (number => {
-    if (number % 15 === 0) {
-      answerArr.push('Fizz Buzz');
-    } else if (number % 5 === 0) {
-      answerArr.push('Buzz');
-    } else if (number % 3 === 0) {
-      answerArr.push('Fizz');
-    } else { answerArr.push(number);}
-  }
-  );
-  return answerArr;
+  let output = [];
+
+  arr.forEach((val) => {
+    if (val % 15 === 0) {output.push('Fizz Buzz');}
+    else if (val % 5 === 0) {output.push('Buzz');}
+    else if (val % 3 === 0) {output.push('Fizz');}
+    else {output.push(val);}
+  });
+
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
