@@ -1,5 +1,8 @@
 'use strict';
 
+// to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
+const cheerio = require('cheerio');
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -23,9 +26,8 @@ let starWarsPeople = [
   }
 ];
 
-//createSnippetWithJQuery(`
 
-let $ = (`
+let $ = createSnippetWithJQuery(`
 <main>
   <section id="template">
     <h2></h2>
@@ -405,3 +407,8 @@ describe('Testing challenge 11', () => {
     expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'euioo']);
   });
 });
+
+function createSnippetWithJQuery(html){
+  return cheerio.load(html);
+}
+
