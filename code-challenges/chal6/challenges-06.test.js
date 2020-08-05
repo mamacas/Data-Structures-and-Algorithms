@@ -1,29 +1,18 @@
 'use strict';
 
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 1
-
-Write a function named getCourseKeys that takes in the courseInfo object and returns an array containing the keys for the courseInfo object.
-
-For example: (['name', 'duration', 'topics', 'finalExam']).
------------------------------------------------------------------------------------------------- */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
-  topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
-  finalExam: true
-};
-
-const getCourseKeys = (obj) => {
-  let properties = Object.keys(courseInfo);
-  return properties;
-};
+// to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
+const cheerio = require('cheerio');
+const Mustache = require('mustache');
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 2
-Use the characters data below for the remainder of the challenges.
 
-Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
+CHALLENGE 1 - Review
+
+Use the characters data below for all of the challenges except challenge 2.
+
+Write a function named templatingWithMustache that uses mustache to create the markup templates for each of the characters. Use the snippet as your guide for creating your templates. Return an array of template strings. Note: this function does not need to actually append the markup to the DOM.
+
 ------------------------------------------------------------------------------------------------ */
-
 let characters = [
   {
     name: 'Eddard',
@@ -69,16 +58,57 @@ let characters = [
   }
 ];
 
+let $ = createSnippetWithJQuery(`
+<script id="template" type="x-tmpl-mustache">
+<h2>{{ name }}</h2>
+<h3>{{ spouse }}</h3>
+{{#children}}
+* {{.}}
+{{/children}}
+<p> {{ house }} </p>
+</script>
+`);
+
+const templatingWithMustache = () => {
+  $('#template')
+    .append();
+};
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 2
+
+Write a function named getCourseKeys that takes in the courseInfo object and returns an array containing the keys for the courseInfo object.
+
+For example: (['name', 'duration', 'topics', 'finalExam']).
+------------------------------------------------------------------------------------------------ */
+const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+  topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
+  finalExam: true
+};
+
+const getCourseKeys = (obj) => {
+  let properties = Object.keys(courseInfo);
+  return properties;
+};
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 3
+
+Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
+------------------------------------------------------------------------------------------------ */
+
 const getHouses = (arr) => {
   let houses = [];
-  for (let i = 0; i < characters.length; i++) {
-    houses.push(characters[i].house);
+
+  for (let i = 0; i < arr.length; i++) {
+    houses.push(arr[i].house);
   }
+
   return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
-CHALLENGE 3
+CHALLENGE 4
 
 Write a function named hasChildrenValues that uses Object.values to determine if any given character in the data set has children.
 
@@ -101,9 +131,9 @@ const hasChildrenValues = (arr, character) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 4
+CHALLENGE 5 - Stretch Goal
 
-Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 3, but uses the data's entries instead of its values.
+Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 4, but uses the data's entries instead of its values.
 
 The input and output of this function are the same as the input and output from challenge 3.
 ------------------------------------------------------------------------------------------------ */
@@ -120,7 +150,7 @@ const hasChildrenEntries = (arr, character) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5
+CHALLENGE 6 - Stretch Goal
 
 Write a function named totalCharacters that takes in an array and returns the number of characters in the array.
 ------------------------------------------------------------------------------------------------ */
@@ -143,7 +173,7 @@ const totalCharacters = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 - Stretch Goal
+CHALLENGE 7 - Stretch Goal
 
 Write a function named houseSize that takes in the array of characters and creates an object for each house containing the name of the house and the number of members.
 
@@ -159,7 +189,7 @@ const houseSize = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 7 - Stretch Goal
+CHALLENGE 8 - Stretch Goal
 
 As fans are well aware, "When you play the game of thrones, you win or you die. There is no middle ground."
 
@@ -194,19 +224,27 @@ Run your tests from the console: jest challenges-06.test.js
 ------------------------------------------------------------------------------------------------ */
 
 describe('Testing challenge 1', () => {
+  test('It should return html markup with the character', () => {
+    const filledTemplates = templatingWithMustache();
+    const $ = cheerio.load(filledTemplates[0]);
+    expect($('h2').text()).toStrictEqual('Eddard');
+  });
+});
+
+describe('Testing challenge 2', () => {
   test('It should return the keys from an object', () => {
     expect(getCourseKeys(courseInfo)).toStrictEqual(['name', 'duration', 'topics', 'finalExam']);
   });
 });
 
-describe('Testing challenge 2', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array of the names of the houses', () => {
     expect(getHouses(characters)).toStrictEqual(['Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Greyjoy', 'Snow']);
     expect(getHouses(characters).length).toStrictEqual(7);
   });
 });
 
-describe('Testing challenge 3', () => {
+describe('Testing challenge 4', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
   });
@@ -216,7 +254,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-describe('Testing challenge 4', () => {
+describe('Testing challenge 5', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
@@ -226,21 +264,26 @@ describe('Testing challenge 4', () => {
   });
 });
 
-describe('Testing challenge 5', () => {
+describe('Testing challenge 6', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(26);
   });
 });
 
-describe('Testing challenge 6', () => {
+xdescribe('Testing challenge 7', () => {
   test('It should return an object for each house containing the name and size', () => {
     expect(houseSize(characters)).toStrictEqual([{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
     expect(houseSize(characters).length).toStrictEqual(7);
   });
 });
 
-describe('Testing challenge 7', () => {
+xdescribe('Testing challenge 8', () => {
   test('It should not include any deceased spouses', () => {
     expect(houseSurvivors(characters)).toStrictEqual([{ house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
   });
 });
+
+
+function createSnippetWithJQuery(html){
+  return cheerio.load(html);
+}
