@@ -1,7 +1,40 @@
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 1
+CHALLENGE 1 - Review
+
+Build a simple express server. Connect a '/hello' route that sends a greeting of your  choice. Connect a '/aboutme' route that sends a short bio about you to the front-end. Finally, connect a '/favoritefoods' route that sends an array to the front-end of your favorite foods. All other routes should respond with a status of 404.
+------------------------------------------------------------------------------------------------ */
+
+const createServer = () => {
+  const express=require('express');
+  const app=express();
+
+  app.get('/hello', sayHello);
+  app.get('/aboutme', aboutMe);
+  app.get('/favoritefoods', favorites);
+
+  var server = app.listen(3301, function () {
+    var port = server.address().port;
+    console.log('Example app listening at port', port);
+  });
+  return server;
+};
+
+function sayHello(req, res){
+  res.send('Salaam!');
+}
+
+function aboutMe(req, res){
+  res.send('My name is Qasira but you can call me Cas. I am a JavaScript Developer who enjoys building clean UI and playing with jQuery');
+}
+
+function favorites(req, res){
+  res.send(['steak', 'shawarma', 'scallops']);
+}
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 2
 
 Write a function named count that, given an integer and an array of arrays, uses either filter, map, or reduce to count the amount of times the integer is present in the array of arrays.
 
@@ -23,7 +56,7 @@ const count = (target, input) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 2
+CHALLENGE 3
 
 Write a function that, given an array of integer arrays as input, calculates the total sum of all the elements in the array.
 
@@ -44,7 +77,7 @@ const totalSum = (input) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 3
+CHALLENGE 4
 
 Write a function named divisibleByFiveTwoToThePower that accepts an array of arrays as input.
 
@@ -56,11 +89,27 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  for (let i = 0; i < input.length; i++) {
+    for (let j = input[i].length - 1; j >= 0; j--) {
+      if (input[i][j] % 5 !== 0 || typeof input[i][j] !== 'number') {
+        input[i].splice(j, 1);
+      }
+    }
+  }
+
+  for (let i = 0; i < input.length; i++) {
+    for (let j = 0; j < input[i].length; j++ ){
+      let raised = Math.pow(2, input[i][j]);
+      input[i].splice(j, 1, raised);
+    }
+  }
+
+  return input;
 };
 
+
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 4
+CHALLENGE 5 - Stretch Goal
 
 Write a function named findMaleAndFemale that, given the Star Wars data, below,
 returns the names of the characters whose gender is either male or female.
@@ -133,7 +182,7 @@ let findMaleAndFemale = (data) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5
+CHALLENGE 6 - Stretch Goal
 
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
 ------------------------------------------------------------------------------------------------ */
@@ -154,6 +203,45 @@ Run your tests from the console: jest challenges-10.test.js
 ------------------------------------------------------------------------------------------------ */
 
 describe('Testing challenge 1', () => {
+
+  const request = require('supertest');
+
+  let server;
+
+  beforeAll(function () {
+    server = createServer();
+  });
+
+  afterAll(function () {
+    server.close();
+  });
+
+  test('responds to /hello', function testHello(done) {
+    request(server)
+      .get('/hello')
+      .expect(200, done);
+  });
+
+  test('responds to /aboutme', function testAboutMe(done) {
+    request(server)
+      .get('/aboutme')
+      .expect(200, done);
+  });
+
+  test('responds to /favoritefoods', function testFavoriteFoods(done) {
+    request(server)
+      .get('/favoritefoods')
+      .expect(200, done);
+  });
+
+  test('responds to /foo', function testNotFound(done) {
+    request(server)
+      .get('/foo')
+      .expect(404, done);
+  });
+});
+
+describe('Testing challenge 2', () => {
   test('It should return the number of times the input is in the nested arrays', () => {
     expect(count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(4);
     expect(count(3, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(2);
@@ -165,7 +253,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+describe('Testing challenge 3', () => {
   test('It should add all the numbers in the arrays', () => {
     const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
 
@@ -173,7 +261,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 3', () => {
+describe('Testing challenge 4', () => {
   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
     expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
   });
@@ -187,14 +275,14 @@ describe('Testing challenge 3', () => {
   });
 });
 
-describe('Testing challenge 4', () => {
+describe('Testing challenge 5', () => {
   test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
   });
 });
 
-describe('Testing challenge 5', () => {
+xdescribe('Testing challenge 6', () => {
   test('It should return the name of the shortest character', () => {
     expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
   });
