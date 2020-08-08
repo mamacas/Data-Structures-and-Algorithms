@@ -1,7 +1,31 @@
 'use strict';
 
+
+// to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
+const cheerio = require('cheerio');
+
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 1
+CHALLENGE 1 - Review
+
+There's a typo in the markup. The Pear is misspelled Perr.
+Cheerio is a alternative implementation of jQuery that works on server
+Use Cheerio with jQuery syntax to fix the typo
+------------------------------------------------------------------------------------------------ */
+
+const $ = createSnippetWithJQuery(`
+<ul id="fruits">
+  <li class="apple">Apple</li>
+  <li class="orange">Orange</li>
+  <li class="pear">Perr</li>
+</ul>
+`);
+
+const fixTheTypo = () => {
+// Solution code here...
+};
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 2
 
 Write a function named firstLetters that takes in an array of strings and returns an array containing only the first letter of each string.
 
@@ -18,7 +42,7 @@ const firstLetters = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 2
+CHALLENGE 3
 
 Write a function named findHappiness that takes in an array of strings and returns an array containing only the strings from the input array that contain ":)".
 
@@ -37,7 +61,7 @@ const findHappiness = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 3
+CHALLENGE 4
 
 Write a function named standardizePhoneNumbers that takes in an array of phone number strings in (XXX) XXX-XXXX format and returns an array with the phone number strings in XXXXXXXXXX format.
 
@@ -57,7 +81,7 @@ const standardizePhoneNumbers = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 4
+CHALLENGE 5 - Stretch Goal
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
@@ -78,7 +102,7 @@ const onlyOddChars = (str) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5
+CHALLENGE 6 - Stretch Goal
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
@@ -96,7 +120,7 @@ const allHappy = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6
+CHALLENGE 7 - Stretch Goal
 
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
@@ -113,7 +137,7 @@ const findAnything = (arr, target) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 7
+CHALLENGE 8 - Stretch Goal
 
 Write a function named findEvery that takes in an array of strings, along with a target string. Return a Boolean based on whether or not every string in the array contains the target string.
 ------------------------------------------------------------------------------------------------ */
@@ -131,7 +155,7 @@ const findEvery = (arr, target) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 8
+CHALLENGE 9 - Stretch Goal
 
 We've been testing a new course enrollment system, and we think we have the bugs worked out, but in the meantime, Brook enrolled himself in a bunch of different classes to test if it was working.
 
@@ -160,7 +184,7 @@ const unenrollBrook = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 9 - Stretch Goal
+CHALLENGE 10 - Stretch Goal
 
 Write a function named sortByDay that takes in an array of strings, each of which represents an event's day and time.
 
@@ -187,7 +211,7 @@ const sortByDay = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 10 - Stretch Goal
+CHALLENGE 11 - Stretch Goal
 
 Write a function named characterByIndex that takes in an array of strings and returns an array containing the first character of the first string, the second character of the second string, etc.
 
@@ -210,6 +234,14 @@ Run your tests from the console: jest challenges-13.test.js
 ------------------------------------------------------------------------------------------------ */
 
 describe('Testing challenge 1', () => {
+  test('It should return markup with typo fixed', () => {
+    fixTheTypo();
+
+    expect($('.pear').text()).toStrictEqual('Pear');
+  });
+});
+
+describe('Testing challenge 2', () => {
   test('It should return the first letter of each element of the array', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
@@ -219,7 +251,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+describe('Testing challenge 3', () => {
   test('It should return only the strings that contain smiley faces', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -230,7 +262,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 3', () => {
+describe('Testing challenge 4', () => {
   test('It should return a standardized set of phone numbers', () => {
     const nums = ['(123) 456-7890', '(222) 222-2222'];
 
@@ -239,7 +271,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-describe('Testing challenge 4', () => {
+describe('Testing challenge 5', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
@@ -248,7 +280,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-describe('Testing challenge 5', () => {
+describe('Testing challenge 6', () => {
   test('It should correctly assess whether all the strings are happy', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -258,7 +290,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-describe('Testing challenge 6', () => {
+describe('Testing challenge 7', () => {
   test('It should find all the strings that contain a given string', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -267,7 +299,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-describe('Testing challenge 7', () => {
+describe('Testing challenge 8', () => {
   test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
@@ -277,7 +309,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-describe('Testing challenge 8', () => {
+xdescribe('Testing challenge 9', () => {
   test('It should remove Brook from all courses', () => {
     const roster = [
       ['Michelle', 'Allie', 'Brook TESTING'],
@@ -295,7 +327,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-describe('Testing challenge 9', () => {
+xdescribe('Testing challenge 10', () => {
   test('It should sort events by the day on which they happen', () => {
     const events = ['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7', 'in the club on a Tuesday', 'Thursday Night Code', 'Saturday Night Fever'];
     const sortedEvents = sortByDay(events);
@@ -319,7 +351,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-describe('Testing challenge 10', () => {
+xdescribe('Testing challenge 11', () => {
   test('It should return the ith character of the ith string', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
@@ -328,3 +360,7 @@ describe('Testing challenge 10', () => {
     expect(characterByIndex(['wow', 'wow', 'wow'])).toStrictEqual(['w', 'o', 'w']);
   });
 });
+
+function createSnippetWithJQuery(html){
+  return cheerio.load(html);
+}
