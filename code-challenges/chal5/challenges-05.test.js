@@ -39,12 +39,18 @@ let $ = createSnippetWithJQuery(`
 
 const templateWithJQuery = () => {
 
-  for (let val of starWarsPeople) {
-    $('#template')
-      .append(`<h2>${starWarsPeople[val].name}</h2>`)
-      .append(`<h3>${starWarsPeople[val].height}</h3>`)
-      .append(`<p>${starWarsPeople[val].eye_color}</p>`);
-  }
+
+  starWarsPeople.map(person => {
+
+    let $temp = $('#template').clone();
+
+    $temp.find('h2').html(person.name);
+    $temp.find('h3').html(person.height);
+    $temp.find('p').html(person.eye_color);
+    $temp.removeAttr('id');
+
+    $('main').append($temp);
+  });
 
 };
 
