@@ -1,7 +1,28 @@
 'use strict';
 
+// to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
+const cheerio = require('cheerio');
+
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 1
+CHALLENGE 1 - Review
+
+Write a function named changeAllClassNames that uses jQuery to select all each li and add a class of "fruit";
+
+------------------------------------------------------------------------------------------------ */
+let $ = createSnippetWithJQuery(`
+<ul id="fruits">
+  <li class="apple">Apple</li>
+  <li class="orange">Orange</li>
+  <li>Pear</li>
+</ul>
+`);
+
+const changeAllClassNames = () => {
+  // Solution code here...
+};
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 2
 
 Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, highest to smallest.
 ------------------------------------------------------------------------------------------------ */
@@ -14,7 +35,7 @@ const sortBackwards = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 2
+CHALLENGE 3
 
 Write a function named alphabetize that takes in an array of strings and returns the same array with the strings sorted alphabetically.
 
@@ -29,7 +50,7 @@ const alphabetize = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 3
+CHALLENGE 4
 
 Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
@@ -42,7 +63,7 @@ const sortByLength = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 4
+CHALLENGE 5 - Stretch Goal
 
 Write a function named alphabetizeBetter that takes in an array of strings and returns the same array, with the strings sorted alphabetically. Capitalization should not change the sort order of two strings.
 
@@ -57,7 +78,7 @@ const alphabetizeBetter = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5
+CHALLENGE 6 - Stretch Goal
 
 Write a function named sortByPrice that takes in an array of objects, each of which has a 'price' property, and sorts those objects by price, lowest to highest, returning the same array.
 
@@ -77,7 +98,7 @@ const sortByPrice = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6
+CHALLENGE 7 - Stretch Goal
 
 Write a function named sortNumbersByLength that takes in an array of numbers and sorts those numbers by their length.
 
@@ -93,7 +114,7 @@ const sortNumbersByLength = (arr) => {
 };
 
 /*-----------------------------------------------------------------------------------------------
-CHALLENGE 7
+CHALLENGE 8 - Stretch Goal
 
 Write a function named sortPeople that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names. Do not worry about capitalization or first names.
 ------------------------------------------------------------------------------------------------ */
@@ -119,7 +140,7 @@ const sortPeople = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 8
+CHALLENGE 9 - Stretch Goal
 
 Write a function named sortPeopleBetter that takes in an array of Person objects, each of which has firstName, lastName, and age properties, and sorts those people by their last names.
 
@@ -133,7 +154,7 @@ const sortPeopleBetter = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 9 - Stretch Goal
+CHALLENGE 10 - Stretch Goal
 
 Write a function named sortMeetingsByDay that takes in an array of objects, each of which represents a meeting happening a particular day of the week, with a particular start time and end time.
 
@@ -159,7 +180,7 @@ const sortMeetingsByDay = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 10 - Stretch Goal
+CHALLENGE 11 - Stretch Goal
 
 This challenge should use the array of meetings from challenge 9, above.
 
@@ -169,6 +190,23 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
+  // Solution code here...
+};
+
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 12 - Stretch Goal
+
+Without altering the html, write a function named addPearClass that uses jQuery to add a class of "pear" to the third li.
+------------------------------------------------------------------------------------------------ */
+$ = createSnippetWithJQuery(`
+<ul id="fruits">
+  <li class="apple">Apple</li>
+  <li class="orange">Orange</li>
+  <li>Pear</li>
+</ul>
+`);
+
+const addPearClass = () => {
   // Solution code here...
 };
 
@@ -183,6 +221,15 @@ Run your tests from the console: jest challenges-03.test.js
 ------------------------------------------------------------------------------------------------ */
 
 describe('Testing challenge 1', () => {
+  test('It should add a class of fruit to all the list items', () => {
+    changeAllClassNames();
+
+    expect($('li.apple').hasClass('fruit')).toBe(true);
+    expect($('li.orange').hasClass('fruit')).toBe(true);
+  });
+});
+
+describe('Testing challenge 2', () => {
   test('It should sort high-to-low the numbers in an array', () => {
     const nums = [3,4,5,6,7];
     expect(sortBackwards(nums)).toStrictEqual([7,6,5,4,3]);
@@ -193,7 +240,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+describe('Testing challenge 3', () => {
   test('It should sort strings alphabetically', () => {
     expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
     expect(alphabetize(['alphabet','Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'alphabet', 'carrot']);
@@ -201,7 +248,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 3', () => {
+describe('Testing challenge 4', () => {
   test('It should sort strings by length', () => {
     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
@@ -212,7 +259,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-describe('Testing challenge 4', () => {
+describe('Testing challenge 5', () => {
   test('It should alphabetize without regard to capitalization', () => {
     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
@@ -221,7 +268,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-describe('Testing challenge 5', () => {
+describe('Testing challenge 6', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
       {name: 'Sweatshirt', price: 45},
@@ -237,7 +284,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-describe('Testing challenge 6', () => {
+describe('Testing challenge 7', () => {
   test('It should sort numbers by their length', () => {
     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
@@ -245,7 +292,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-describe('Testing challenge 7', () => {
+describe('Testing challenge 8', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
@@ -257,7 +304,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-describe('Testing challenge 8', () => {
+xdescribe('Testing challenge 9', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
@@ -278,7 +325,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-describe('Testing challenge 9', () => {
+xdescribe('Testing challenge 10', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0,2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
@@ -288,7 +335,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-describe('Testing challenge 10', () => {
+xdescribe('Testing challenge 11', () => {
   test('It should sort meetings by when they happen', () => {
     expect(sortSchedule(meetings)).toStrictEqual([
       new Meeting('Monday', '0900', '0945'),
@@ -300,3 +347,14 @@ describe('Testing challenge 10', () => {
     ]);
   });
 });
+
+xdescribe('Testing challenge 12', () => {
+  test('It should add a class of pear to the thrid li', () => {
+    addPearClass();
+    expect($('li:nth-child(3)').hasClass('pear')).toBe(true);
+  });
+});
+
+function createSnippetWithJQuery(html){
+  return cheerio.load(html);
+}
