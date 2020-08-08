@@ -21,7 +21,7 @@ const $ = createSnippetWithJQuery(`
 `);
 
 const fixTheTypo = () => {
-// Solution code here...
+  $('#fruits').find('.pear').html('Pear');
 };
 
 /* ------------------------------------------------------------------------------------------------
