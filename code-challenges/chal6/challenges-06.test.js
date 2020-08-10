@@ -70,8 +70,8 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templatingWithMustache = () => {
-  $('#template')
-    .append();
+  console.log($('#template').find('h2').text());
+  console.log();
 };
 
 /* ------------------------------------------------------------------------------------------------
