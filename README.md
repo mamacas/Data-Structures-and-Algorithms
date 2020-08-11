@@ -38,7 +38,7 @@ Write a function called reverseArray which takes an array as an argument. Withou
 I chose to create an empty array for my result, then reverse-for-loop through the existing array, popping off each index and pushing it into the result array simultaneously.
 
 ### Solution
-[whiteboard]('assets/wb-arrayReverse.png')
+[whiteboard](assets/wb-arrayReverse.png)
 
 
 
