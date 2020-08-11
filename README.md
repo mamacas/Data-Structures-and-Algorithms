@@ -1,11 +1,11 @@
 # Data Structures & Algorithms
 
 *** 
-> [assets](assets)
-  >>>[wb-arrayReverse.png]()
->[code-challenges](code-challenges)
-  >>[301](code-challenges/301)
-    >>>[for-each](code-challenges/301/for-each/challenges-01.test.js)
+|--[assets](assets)
+    |--[wb-arrayReverse.png]()
+|--[code-challenges](code-challenges)
+    |--[301](code-challenges/301)
+        |--[for-each](code-challenges/301/for-each/challenges-01.test.js)
 ***
 
 # Code 301
