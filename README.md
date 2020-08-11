@@ -1,30 +1,35 @@
 # Data Structures & Algorithms
 
 *** 
+> [assets](assets)
+  >>>[wb-arrayReverse.png]()
+>[code-challenges](code-challenges)
+  >>[301](code-challenges/301)
+    >>>[for-each](code-challenges/301/for-each/challenges-01.test.js)
 ***
 
 # Code 301
 
-* for-each
-* value-vs-reference
-* sort
-* regex
-* chal5
-* chal6
-* map
-* filter
-* reduce
-* string
-* regextwo
-* 2d-arrays
-* includes
-* combo
+* [for-each](code-challenges/301/for-each/challenges-01.test.js)
+* [value-vs-reference]()
+* [sort]()
+* [regex]()
+* [chal5]()
+* [chal6]()
+* [map]()
+* [filter]()
+* [reduce]()
+* [string]()
+* [regextwo]()
+* [2d-arrays]()
+* [includes]()
+* [combo]()
 
 *** 
 
 # Code 401
 
-* arrayReverse
+* [arrayReverse]()
 
 ***
 
