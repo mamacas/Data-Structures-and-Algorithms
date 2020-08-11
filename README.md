@@ -52,4 +52,4 @@ I chose to create an empty array for my result, then reverse-for-loop through th
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
 <!-- ### Solution -->
-<!-- [whiteboard]('/assets/whiteboard.jpeg') --> -->
+<!-- [whiteboard]('/assets/whiteboard.jpeg') -->
