@@ -28,7 +28,7 @@
 
 ***
 
-## Reverse an Array
+## Reverse an Array (arrayReverse)
 Code Challenge : Class 01
 
 ### Challenge
@@ -38,19 +38,18 @@ Write a function called reverseArray which takes an array as an argument. Withou
 I chose to create an empty array for my result, then reverse-for-loop through the existing array, popping off each index and pushing it into the result array simultaneously.
 
 ### Solution
-<!-- [whiteboard]('/assets/whiteboard.jpeg') -->
+[whiteboard]('assets/wb-arrayReverse.png')
 
 
 
 <!-- ## Challenge02
 <!-- Short summary or background information -->
 
-### Challenge
+<!-- ### Challenge -->
 <!-- Description of the challenge -->
 
-### Approach & Efficiency
+<!-- ### Approach & Efficiency -->
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
-
-### Solution
+<!-- ### Solution -->
 <!-- [whiteboard]('/assets/whiteboard.jpeg') --> -->
