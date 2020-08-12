@@ -25,6 +25,7 @@
 # Code 401
 
 * [arrayReverse](code-challenges/401/arrayReverse/array-reverse.js)
+* [arrayShift](code-challenges/401/arrayShift/array-shift.js)
 
 ***
 
@@ -42,14 +43,18 @@ I chose to create an empty array for my result, then reverse-for-loop through th
 
 
 
-<!-- ## 2. Title (foldername)
-<!-- Short summary or background information -->
+## 2. Insert and Shift an Array in Middle at Index (arrayShift)
+Code Challenge : Class 02
 
-<!-- ### Challenge -->
-<!-- Description of the challenge -->
+### Challenge
+Write a function called insertShiftArray which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 
-<!-- ### Approach & Efficiency -->
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+### Approach & Efficiency
+* To determine the middle index, I took array.length and divided by two. 
+  * In order to handle arrays with uneven lengths (array.length % 2 !== 0), I used Math.ceil to round up to the nearest integer (example output assignment in Canvas indicated I should use ceil, not floor). 
+* I chose to create an empty array for my result. 
+* Then I for-looped through the input array, pushing the values of each index into the result array until I reached the middle index that was previously defined. 
+  * At that point, I pushed the input value into the result array, and continued looping through the input array, continuing to push those values into the result array. 
 
-<!-- ### Solution -->
-<!-- ![foldername Whiteboard]('/assets/whiteboard.jpeg') -->
+### Solution
+![arrayShift Whiteboard](/assets/wb-arrayShift.png)
