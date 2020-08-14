@@ -7,11 +7,11 @@ const binarySearch = (arr, x) => {
   let eIDX = arr.length - 1;
   let mIDX = (Math.floor((eIDX - sIDX) / 2) + sIDX);
 
-  if (x === arr[sIDX]) { 
+  if (x === arr[sIDX]) {
     return sIDX;
   }
 
-  if (x === arr[eIDX]) { 
+  if (x === arr[eIDX]) {
     return eIDX;
   }
 
