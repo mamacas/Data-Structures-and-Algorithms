@@ -2,9 +2,34 @@
 #### Author: Cas Ibrahim
 
 *** 
-***
+### Data Structures
 
-## Code 301
+* [linkedList](data-structures/linkedList/linked-list.js)
+
+#### 1. Singly Linked List
+Code Challenge : Class 05
+
+##### Challenge
+* Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
+* Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created.
+    * Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+    * Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+    * Define a method called toString which takes in no arguments and returns a string representing all the values in the Linked List, formatted as: 
+    `{ a } -> { b } -> { c } -> NULL`
+
+##### API
+* insert(value)
+    * takes in any value
+    * adds a new node with that value to the head of the list
+* includes(value)
+    * takes in any value and returns a boolean
+    * returns true if value exists in the linked list
+    * returns false if value does not exist in the linked list
+* toString()
+    * takes in no arguments
+    * returns a string representing all the values in the linked list
+
+### Code 301
 
 * [for-each](code-challenges/301/for-each/challenges-01.test.js)
 * [value-vs-reference](code-challenges/301/value-vs-reference/challenges-02.test.js)
@@ -23,53 +48,52 @@
 
 *** 
 
-## Code 401
+### Code 401
 
 * [arrayReverse](code-challenges/401/arrayReverse/array-reverse.js)
 * [arrayShift](code-challenges/401/arrayShift/array-shift.js)
 * [arrayBinarySearch](code-challenges/401/arrayBinarySearch/array-binary-search.js)
 
-***
 
-### 1. Reverse an Array (arrayReverse)
+#### 1. Reverse an Array (arrayReverse)
 Code Challenge : Class 01
 
-#### Challenge
+##### Challenge
 Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
 
-#### Approach & Efficiency
+##### Approach & Efficiency
 I chose to create an empty array for my result, then reverse-for-loop through the existing array, popping off each index and pushing it into the result array simultaneously.
 
-#### Solution
+##### Solution
 ![arrayReverse Whiteboard](assets/wb-arrayReverse.png)
 
 ***
 
-### 2. Insert and Shift an Array in Middle at Index (arrayShift)
+#### 2. Insert and Shift an Array in Middle at Index (arrayShift)
 Code Challenge : Class 02
 
-#### Challenge
+##### Challenge
 Write a function called insertShiftArray which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 
-#### Approach & Efficiency
+##### Approach & Efficiency
 * To determine the middle index, I took array.length and divided by two. 
   * In order to handle arrays with uneven lengths (array.length % 2 !== 0), I used Math.ceil to round up to the nearest integer (example output assignment in Canvas indicated I should use ceil, not floor). 
 * I chose to create an empty array for my result. 
 * Then I for-looped through the input array, pushing the values of each index into the result array until I reached the middle index that was previously defined. 
   * At that point, I pushed the input value into the result array, and continued looping through the input array, continuing to push those values into the result array. 
 
-#### Solution
+##### Solution
 ![arrayShift Whiteboard](/assets/wb-arrayShift.png)
 
 ***
 
-### 3. Binary Search in a sorted 1D array
+#### 3. Binary Search in a sorted 1D array
 Code Challenge : Class 03
 
-#### Challenge
+##### Challenge
 Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
 
-#### Approach & Efficiency
+##### Approach & Efficiency
 * To begin performing a binary search, I captured my start index and end index in variables, then used them to find the middle index. 
 * Next I tested whether the search key (hereinafter referred to as 'x') was equal to the start index value or the end index value. If neither, I tested whether the search key was equal to the middle index value. If no, then I proceeded:
 * While x != middle index value, I tested whether:
@@ -81,5 +105,5 @@ Write a function called BinarySearch which takes in 2 parameters: a sorted array
 * At which point I returned the middle index.
 * If x is not included in the array, I returned -1
 
-#### Solution
+##### Solution
 ![arrayBinarySearch Whiteboard](/assets/wb-arraybinarySearch.png)
