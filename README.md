@@ -6,7 +6,7 @@
 
 * [linkedList](data-structures/linkedList/linked-list.js)
 
-#### 1.0 Singly Linked List(insert, includes, toString)
+#### 1.0 Singly Linked List (insert, includes, toString)
 Code Challenge : Class 05
 
 ##### Challenge
