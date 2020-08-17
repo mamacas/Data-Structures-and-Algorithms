@@ -28,6 +28,8 @@ Code Challenge : Class 05
 * toString()
     * takes in no arguments
     * returns a string representing all the values in the linked list
+    
+*** 
 
 #### 1.1 Singly Linked List (append, insertBefore, insertAfter)
 Code Challenge : Class 06
@@ -51,6 +53,8 @@ Code Challenge : Class 06
 
 ##### Solution
 ![linkedList1.1](assets/wb-linkedList2.png)
+
+***
 
 ### Code 301
 
