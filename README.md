@@ -106,4 +106,4 @@ Write a function called BinarySearch which takes in 2 parameters: a sorted array
 * If x is not included in the array, I returned -1
 
 ##### Solution
-![arrayBinarySearch Whiteboard](/assets/wb-arraybinarySearch.png)
+![arrayBinarySearch Whiteboard](/assets/wb-arrayBinarySearch.png)
