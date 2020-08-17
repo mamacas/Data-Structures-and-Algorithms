@@ -6,7 +6,7 @@
 
 * [linkedList](data-structures/linkedList/linked-list.js)
 
-#### 1. Singly Linked List
+#### 1.0 Singly Linked List(insert, includes, toString)
 Code Challenge : Class 05
 
 ##### Challenge
@@ -28,6 +28,29 @@ Code Challenge : Class 05
 * toString()
     * takes in no arguments
     * returns a string representing all the values in the linked list
+
+#### 1.1 Singly Linked List (append, insertBefore, insertAfter)
+Code Challenge : Class 06
+
+##### Challenge
+* Within your LinkedList class, add the following methods:
+    * append(value) which adds a new note with the given val to the end of the linked list
+    * insertBefore(value, newValue) which adds a new note with the given newValue immediately before the node with the existing value
+    * insertAfter(value, newValue), which adds a new node with the given newValue immediately after the node with the existing value
+
+##### API
+* append(value)
+    * takes in any value
+    * adds a new node with that value to the end of the list
+* insertBefore(value, newValue)
+    * takes in an existing value and a new value
+    * adds a new node with the new value to the linked list, directly before the node with the existing value
+* insertAfter(value, newValue)
+    * takes in an existing value and a new value
+    * adds a new node with the new value to the linked list, directly after the node with the existing value
+
+##### Solution
+![linkedList1.1](assets/wb-linkedList2.png)
 
 ### Code 301
 

@@ -13,7 +13,7 @@ it('should add the provided value to empty list', () => {
   expect(ll.head.value).toBe(1);
 });
 
-it('should add to list that is not empty', () => {
+it('should add to the beginning of a list that is not empty', () => {
   const ll = new LinkedList();
   ll.insert(10);
   ll.insert(20);
@@ -21,12 +21,14 @@ it('should add to list that is not empty', () => {
   expect(ll.head.next.value).toBe(10);
 });
 
-it('should append to list that is not empty', () => {
+it('should append to the end of a list that is not empty', () => {
   const ll = new LinkedList();
   ll.insert(10);
   ll.insert(20);
+  ll.append(55);
   expect(ll.head.value).toBe(20);
   expect(ll.head.next.value).toBe(10);
+  expect(ll.head.next.next.value).toBe(55);
 });
 
 it('should return true if current node value matches input value', () => {
@@ -51,7 +53,51 @@ it('should return a string representing all values in the linked list', () => {
   ll.insert(5);
   ll.insert(10);
   ll.insert(11);
+  ll.append(100);
+  ll.append(200);
   let string = ll.toString();
-  expect(string).toStrictEqual('{11} -> {10} -> {5} -> {2} -> {1} -> NULL');
+  expect(string).toStrictEqual('{11} -> {10} -> {5} -> {2} -> {1} -> {100} -> {200} -> NULL');
 });
+
+it('should successfully insert a node after a node located in the middle of the linked list', () => {
+  const ll = new LinkedList();
+  ll.insert(1);
+  ll.insert(2);
+  ll.insert(3);
+  ll.insertAfter(2, 22);
+  let string = ll.toString();
+  expect(string).toStrictEqual('{3} -> {2} -> {22} -> {1} -> NULL');
+});
+
+it('should successfully insert a node after the last node of the linked list', () => {
+  const ll = new LinkedList();
+  ll.insert(1);
+  ll.insert(2);
+  ll.insert(3);
+  ll.insertAfter(1, 22);
+  let string = ll.toString();
+  expect(string).toStrictEqual('{3} -> {2} -> {1} -> {22} -> NULL');
+});
+
+it('should successfully insert before a node in the middle of the linked list', () => {
+  const ll = new LinkedList();
+  ll.insert(22);
+  ll.insert(39);
+  ll.insert(70);
+  ll.insert(95);
+  ll.insertBefore(39, 50);
+
+  let string = ll.toString();
+  expect(string).toStrictEqual('{95} -> {70} -> {50} -> {39} -> {22} -> NULL');
+});
+
+it.skip('should successfully insert a node before the first node of the linked list', () => {
+  const ll = new LinkedList();
+  ll.insert(2);
+  ll.insert(1);
+  ll.insertBefore(1, 11);
+  let string = ll.toString();
+  expect(string).toStrictEqual('{11} -> {1} -> {2} -> NULL');
+});
+
 
