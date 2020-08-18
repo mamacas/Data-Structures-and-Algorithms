@@ -40,21 +40,6 @@ class LinkedList {
     currentNode.next = newNode;
 
   }
-  // return true if provided value exists in array,
-  // return false if not
-  includes(value) {
-    let currentNode = this.head;
-
-    while (currentNode) {
-      if (currentNode.value === value) {
-        return true;
-      }
-      currentNode = currentNode.next;
-    }
-
-    return false;
-
-  }
 
   // add a new node with the given newValue
   // immediately before the val node
@@ -74,14 +59,11 @@ class LinkedList {
       if (currentNode.next.value === val) {
         newNode.next = currentNode.next;
         currentNode.next = newNode;
-
         break;
       }
 
       currentNode = currentNode.next;
     }
-
-
   }
 
   // add a new node with the given newValue
@@ -101,6 +83,22 @@ class LinkedList {
       }
       currentNode = currentNode.next;
     }
+  }
+
+  // return true if provided value exists in array,
+  // return false if not
+  includes(value) {
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+
+    return false;
+
   }
 
   // convert linked list to string
