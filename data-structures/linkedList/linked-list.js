@@ -9,6 +9,7 @@ class Node {
 
 }
 
+
 class LinkedList {
 
   constructor() {
@@ -30,18 +31,17 @@ class LinkedList {
       return;
     }
 
-    // while loop looks for node whose next is null
     let currentNode = this.head;
 
     while (currentNode.next) {
-      // reassign current node to the next node
       currentNode = currentNode.next;
     }
-    // when we reach the node whose next is null, reassign next value to node we want to add
+
     currentNode.next = newNode;
 
   }
-
+  // return true if provided value exists in array,
+  // return false if not
   includes(value) {
     let currentNode = this.head;
 
@@ -56,19 +56,20 @@ class LinkedList {
 
   }
 
-  // add a new node with the given newValue immediately before the val node
+  // add a new node with the given newValue
+  // immediately before the val node
   insertBefore(val, newVal) {
     let currentNode = this.head;
     let newNode = new Node(newVal, null);
 
+    if (currentNode.value === val) {
+      newNode.next = currentNode;
+      this.head = newNode;
+
+      return;
+    }
+
     while(currentNode.next) {
-
-      // if (currentNode.value === val) {
-      //   newNode.next = currentNode;
-      //   currentNode = currentNode.next;
-
-      //   break;
-      // }
 
       if (currentNode.next.value === val) {
         newNode.next = currentNode.next;
@@ -80,9 +81,11 @@ class LinkedList {
       currentNode = currentNode.next;
     }
 
+
   }
 
-  // add a new node with the given newValue immediately after the first value node
+  // add a new node with the given newValue
+  // immediately after the first value node
   insertAfter(val, newVal) {
     let currentNode = this.head;
     let newNode = new Node(newVal, null);
@@ -100,8 +103,8 @@ class LinkedList {
     }
   }
 
-
-
+  // convert linked list to string
+  // formatted as {head} -> {1} -> {2} -> NULL
   toString() {
     let valArr = [];
     let currentNode = this.head;

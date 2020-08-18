@@ -91,7 +91,7 @@ it('should successfully insert before a node in the middle of the linked list', 
   expect(string).toStrictEqual('{95} -> {70} -> {50} -> {39} -> {22} -> NULL');
 });
 
-it.skip('should successfully insert a node before the first node of the linked list', () => {
+it('should successfully insert a node before the first node of the linked list', () => {
   const ll = new LinkedList();
   ll.insert(2);
   ll.insert(1);
@@ -99,5 +99,3 @@ it.skip('should successfully insert a node before the first node of the linked l
   let string = ll.toString();
   expect(string).toStrictEqual('{11} -> {1} -> {2} -> NULL');
 });
-
-
