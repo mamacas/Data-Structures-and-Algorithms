@@ -56,6 +56,22 @@ Code Challenge : Class 06
 
 ***
 
+#### 1.2 Singly Linked List (kthFromEnd)
+Code Challenge : Class 07
+
+##### Challenge
+* Within your LinkedList class, add method kthFromEnd which takes a number (k) as a parameter, Return the node's value that is k from the end of the linked list.
+
+##### API
+* kthFromEnd(k)
+    * takes in any integer
+    * return the value of the node that is in the kth position from the end of the list
+
+##### Solution
+![linkedList1.2](assets/wb-linkedList3.jpg)
+
+***
+
 ### Code 301
 
 * [for-each](code-challenges/301/for-each/challenges-01.test.js)

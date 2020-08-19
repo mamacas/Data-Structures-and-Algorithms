@@ -101,6 +101,33 @@ class LinkedList {
 
   }
 
+  kthFromEnd(k) {
+    let currentNode = this.head;
+    let length = 0;
+
+    while(currentNode) {
+      length++;
+      currentNode = currentNode.next;
+    }
+
+    let position = length - k;
+
+    if (length <= k || k < 0 || position === 0) {
+      return 'exception';
+    }
+
+    if (length > k) {
+
+      let current = this.head;
+      for (let i = 1; i < position; i++) {
+        current = current.next;
+      }
+
+      return current.value;
+    }
+
+  }
+
   // convert linked list to string
   // formatted as {head} -> {1} -> {2} -> NULL
   toString() {
