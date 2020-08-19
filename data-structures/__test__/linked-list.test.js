@@ -99,3 +99,32 @@ it('should successfully insert a node before the first node of the linked list',
   let string = ll.toString();
   expect(string).toStrictEqual('{11} -> {1} -> {2} -> NULL');
 });
+
+it('should return the value of the node at the kth position from the end of the list', () => {
+  const ll = new LinkedList();
+  ll.insert(2);
+  ll.insert(1);
+  ll.insert(5);
+  ll.insert(10);
+  ll.insert(4);
+  ll.insert(8);
+  // k is somewhere in list
+  expect(ll.kthFromEnd(3)).toStrictEqual(10);
+  // k is last node in list
+  expect(ll.kthFromEnd(0)).toStrictEqual(2);
+  // k is first node in list
+  expect(ll.kthFromEnd(5)).toStrictEqual(8);
+  // k is greater than list length
+  expect(ll.kthFromEnd(10)).toStrictEqual('exception');
+  // k is negative integer
+  expect(ll.kthFromEnd(-2)).toStrictEqual('exception');
+  // k = list length
+  expect(ll.kthFromEnd(6)).toStrictEqual('exception');
+});
+
+it('should return the value of the node at the kth position from the end of the list when the list length is 1', () => {
+  const ll = new LinkedList();
+  ll.insert(2);
+  expect(ll.kthFromEnd(0)).toStrictEqual(2);
+  expect(ll.kthFromEnd(1)).toStrictEqual('exception');
+});
