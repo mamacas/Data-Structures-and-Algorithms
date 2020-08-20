@@ -5,6 +5,7 @@
 ### Data Structures
 
 * [linkedList](data-structures/linkedList/linked-list.js)
+* [linkedListZip](data-structures/llZip/ll-zip.js)
 
 #### 1.0 Singly Linked List (insert, includes, toString)
 Code Challenge : Class 05
@@ -69,6 +70,21 @@ Code Challenge : Class 07
 
 ##### Solution
 ![linkedList1.2](assets/wb-linkedList3.jpg)
+
+***
+
+#### 2.0 Zip Two Linked Lists
+Code Challenge : Class 08
+
+##### Challenge
+* Write a function which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. 
+
+##### Approach & Efficiency
+
+##### Solution
+![zipList](assets/wb-zipList.png)
+    
+*** 
 
 ***
 
