@@ -127,6 +127,70 @@ class LinkedList {
     }
 
   }
+  // -------------
+  reverseList() {
+    let cur = this.head;
+    let prev = null;
+    if (!cur) {
+      return 'this list is empty';
+    }
+    if (!cur.next) {
+      return cur;
+    }
+
+    while(cur) {
+      let oldnext = cur.next;
+      cur.next = prev;
+      prev = cur;
+      cur = oldnext;
+    }
+
+    this.head = prev;
+  }
+
+  // -------------
+
+  palindrome() {
+    let cur = this.head;
+    let prev = null;
+    if (!cur || !cur.next) {
+      return true;
+    }
+
+    let listArr = [];
+
+
+    while(cur) {
+      listArr.push(cur.value);
+      let oldnext = cur.next;
+      cur.next = prev;
+      prev = cur;
+      cur = oldnext;
+    }
+
+    this.head = prev;
+    console.log('arr: ', listArr);
+    //-------
+    cur = this.head;
+    while(cur) {
+      let oppd = listArr.shift();
+      // console.log('test: ', oppd);
+      // console.log('cur.val', cur.value);
+
+      if (oppd !== cur.value) {
+        console.log('false');
+        return false;
+      }
+
+      cur = cur.next;
+    }
+
+    console.log('true');
+    return true;
+
+  }
+
+  // -------------
 
   // convert linked list to string
   // formatted as {head} -> {1} -> {2} -> NULL
