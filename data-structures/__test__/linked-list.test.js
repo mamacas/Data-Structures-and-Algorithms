@@ -128,3 +128,29 @@ it('should return the value of the node at the kth position from the end of the 
   expect(ll.kthFromEnd(0)).toStrictEqual(2);
   expect(ll.kthFromEnd(1)).toStrictEqual('exception');
 });
+
+// -------------
+it('should reverse a singly linked list', () => {
+  const ll = new LinkedList();
+  ll.insert(2);
+  ll.insert(1);
+  ll.insert(5);
+
+  ll.reverseList();
+  let string = ll.toString();
+  console.log('string:', string);
+  expect(string).toStrictEqual('{2} -> {1} -> {5} -> NULL');
+});
+
+it.skip('should return true if a linked list is a palindrome', () => {
+  const ll = new LinkedList();
+  ll.insert(2);
+  ll.insert(1);
+  ll.insert(5);
+
+  ll.palindrome();
+  // let string = ll.toString();
+  // console.log('string:', string);
+  // expect(string).toStrictEqual('{2} -> {1} -> {5} -> NULL');
+});
+// -------------
