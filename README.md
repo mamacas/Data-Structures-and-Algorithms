@@ -6,6 +6,7 @@
 
 * [linkedList](data-structures/linkedList/linked-list.js)
 * [linkedListZip](data-structures/llZip/ll-zip.js)
+* [stacksAndQueues](data-structures/stacksAndQueues/stacks-and-queues.js)
 
 #### 1.0 Singly Linked List (insert, includes, toString)
 Code Challenge : Class 05
@@ -85,6 +86,41 @@ Code Challenge : Class 08
 ![zipList](assets/wb-zipList.png)
     
 *** 
+
+### 3.0 Stacks and Queues
+Code Challenge: Class 10
+
+## Challenge
+* Create a Node class that has properties for the value stored in the Node, and a pointer to the next node.
+* Create a Stack class that has a top property. It creates an empty Stack when instantiated. Add functionality to add and remove values from the stack, view the top node in the stack, and check whether the stack is empty. 
+* Create a Queue class that has a front property. It creates an empty Queue when instantiated. Add functionality to add and remove values from the queue, view the front node in the queue, and check whether the queue is empty.
+
+
+## API
+* Stack
+    * push(value)
+        * takes any value as an argument, adds a new node with that value to the top of the stack
+    * pop()
+        * takes in no arguments, removes the node at the top of the stack and returns the popped node's value
+        * raises an exception when called on an empty stack
+    * peek()
+        * takes in no arguments, returns the value of the node located on the top of the stack
+        * raises an exception when called on an empty stack
+    * isEmpty()
+        * takes in no arguments, returns true if the stack is empty, returns false if the stack is not empty
+* Queue
+    * enqueue(value)
+        * takes any value as an argument, adds a new node with that value to the queue 
+            * if the queue contains no values, the front and the rear pointers are pointing at the new node
+            * if the queue contains an existing value, the new node is added to the rear of the queue 
+    * dequeue()
+        * takes in no arguments, removes the node at the front of the queue and returns the dequeued node's value
+        * raises an exception when called on an empty queue
+    * peek()
+        * takes in no arguments, returns the value of the node located on the front of the queue
+        * raises an exception when called on an empty queue
+    * isEmpty()
+        * takes in no arguments, returns true if the queue is empty, returns false if the queue is not empty
 
 ***
 
