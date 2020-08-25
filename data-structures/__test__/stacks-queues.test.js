@@ -4,8 +4,6 @@ const Stack = require('../stacksAndQueues/stacks-and-queues.js').Stack;
 
 const Queue = require('../stacksAndQueues/stacks-and-queues.js').Queue;
 
-// const test = require('../stacksAndQueues/stacks-and-queues.js');
-
 describe('Node', () => {
 
   it('should be a class', () => {
