@@ -7,6 +7,7 @@
 * [linkedList](data-structures/linkedList/linked-list.js)
 * [linkedListZip](data-structures/llZip/ll-zip.js)
 * [stacksAndQueues](data-structures/stacksAndQueues/stacks-and-queues.js)
+* [queueWithStacks](data-structures/queueWithStacks/queue-with-stacks.js)
 
 #### 1.0 Singly Linked List (insert, includes, toString)
 Code Challenge : Class 05
@@ -80,23 +81,21 @@ Code Challenge : Class 08
 ##### Challenge
 * Write a function which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. 
 
-##### Approach & Efficiency
-
 ##### Solution
 ![zipList](assets/wb-zipList.png)
     
 *** 
 
-### 3.0 Stacks and Queues
+#### 3.0 Stacks and Queues
 Code Challenge: Class 10
 
-## Challenge
+##### Challenge
 * Create a Node class that has properties for the value stored in the Node, and a pointer to the next node.
 * Create a Stack class that has a top property. It creates an empty Stack when instantiated. Add functionality to add and remove values from the stack, view the top node in the stack, and check whether the stack is empty. 
 * Create a Queue class that has a front property. It creates an empty Queue when instantiated. Add functionality to add and remove values from the queue, view the front node in the queue, and check whether the queue is empty.
 
 
-## API
+##### API
 * Stack
     * push(value)
         * takes any value as an argument, adds a new node with that value to the top of the stack
@@ -122,6 +121,26 @@ Code Challenge: Class 10
     * isEmpty()
         * takes in no arguments, returns true if the queue is empty, returns false if the queue is not empty
 
+***
+
+#### 4.0 Queues with Stacks
+Code Challenge: Class 11
+
+##### Challenge
+* Create a PseudoQueue class which:
+    * utilizes 2 Stack objects
+    * contains an enqueue method and a dequeue method
+
+##### API
+* PseudoQueue
+    * enqueue(value)
+        * takes any value as an argument, adds a new node with that value to the top of the stack/front of the queue
+    * dequeue()
+        * takes in no arguments, removes nodes from the top of the stack until the stack is empty, pushing them into a placeholder stack
+        * returns the value of the node at the top of the stack when all nodes from stack 1 have been pushed to the placeholder stack (stack 2)
+
+##### Solution
+![queuesWithStacks](assets/wb-q-w-stack.jpg)
 ***
 
 ### Code 301
