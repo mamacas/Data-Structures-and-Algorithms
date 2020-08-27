@@ -243,3 +243,33 @@ Write a function called BinarySearch which takes in 2 parameters: a sorted array
 
 ##### Solution
 ![arrayBinarySearch Whiteboard](/assets/wb-arrayBinarySearch.png)
+
+***
+
+#### 4. Multi-bracket Validation
+Code Challenge : Class 13
+
+##### Challenge
+Write a function called multiBracketValidation which takes a single string of brackets `{` `[` `(` as its only argument, and returns a boolean.
+* True if brackets are balanced ( i.e. `{[()]}` )
+* False if brackets are not balanced ( i.e. `[[]{()}})` )
+
+##### Approach & Efficiency
+* To begin I checked if the input was valid
+    * if there was no input, input was an empty string, or input type was not a string: returned false
+* Next I created an empty array for comparing values (let compare =[])
+* I created a key for matching closing brackets to their respective opening bracket type
+* I split the input string into an array of individual characters
+    * `'{[]}'` became `[ '{', '[', ']', '}' ]`
+* I looped over that array of characters:
+    * if the first index was a closing bracket of any type: returned false, else continued looping
+    * if arr[i] was an opening bracket, it was pushed to the comparison array
+    * if arr[i] was a closing bracket, it was compared to the value in the comparison array. if the types did not match: returned false
+* If after the loop completed, any characters were left in the comparison array, it indicated that the brackets weren't balanced: returned false
+* If it made it past this final test, it passed everything: returned true
+
+Time is O(2n)
+Space is O(2)
+
+##### Solution
+![bracketMatch](/assets/wb-bracketMatch.png)
