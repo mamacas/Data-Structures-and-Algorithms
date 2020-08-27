@@ -189,6 +189,7 @@ Code Challenge : Class 12
 * [arrayReverse](code-challenges/401/arrayReverse/array-reverse.js)
 * [arrayShift](code-challenges/401/arrayShift/array-shift.js)
 * [arrayBinarySearch](code-challenges/401/arrayBinarySearch/array-binary-search.js)
+* [multiBracketValidation](code-challenges/401/multiBracketValidation/multi-bracket-validation.js)
 
 
 #### 1. Reverse an Array (arrayReverse)
