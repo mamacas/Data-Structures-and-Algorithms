@@ -20,7 +20,7 @@ const multiBracketValidation = (input) => {
     '{': '}'
   };
 
-  // check for closing brackets within the string
+  // to assist in checking for closing brackets within the string
   let closed = {
     ')': true,
     ']': true,
@@ -28,31 +28,28 @@ const multiBracketValidation = (input) => {
   };
 
   // split the string into an array of individual characters
-  let str = input.split('');
+  let str = input;
+
+  // if the first bracket is a closing bracket, return false;
+  if (str[0] === ']' || str[0] === ')' || str[0] === '}') {
+    return false;
+  }
 
   for(let i = 0; i < str.length; i++) {
 
-    // if the first bracket is a closing bracket, return false;
-    if (str[0] === ']' || str[0] === ')' || str[0] === '}') {
-      return false;
-    }
+    let bracket = str[i];
 
-    // if the first bracket is an opening bracket,
-    // continue running the for loop:
-    if (str[i] === '[' || str[i] === '(' || str[i] === '{') {
+    if (bracket === '[' || bracket === '(' || bracket === '{') {
 
-      if (open[str[i]]) {
-        compare.push(str[i]);
+      if (open[bracket]) {
+        compare.push(bracket);
       }
 
-    } else if (closed[str[i]]) {
-
-      if (open[compare.pop()] !== str[i]) {
+    } else if (closed[bracket]) {
+      if (open[compare.pop()] !== bracket) {
         return false;
       }
-
     }
-
   }
 
   if (compare.length !== 0) {

@@ -36,10 +36,12 @@ describe('Bracket Match Validation', () => {
     let bal2 = multiBracketValidation('{}(){}');
     let bal3 = multiBracketValidation('()[[abcd]]');
     let bal4 = multiBracketValidation('{}{hello}[](there())');
+    let imb4 = multiBracketValidation('}}{{');
     expect(bal1).toBeTruthy();
     expect(bal2).toBeTruthy();
     expect(bal3).toBeTruthy();
     expect(bal4).toBeTruthy();
+    expect(imb4).toBeFalsy();
   });
 
 });
