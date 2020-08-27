@@ -272,5 +272,8 @@ Write a function called multiBracketValidation which takes a single string of br
 Time is O(2n)
 Space is O(2)
 
+##### Resources
+* [Open & Closed Objects](https://medium.com/@paulrohan/parenthesis-matching-problem-in-javascript-the-hacking-school-hyd-7d7708278911)
+
 ##### Solution
 ![bracketMatch](/assets/wb-bracketMatch.png)
