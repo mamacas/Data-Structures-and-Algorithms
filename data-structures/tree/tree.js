@@ -93,10 +93,6 @@ class BinaryTree {
 
 class BinarySearchTree extends BinaryTree {
 
-  // constructor(root) {
-  //   super(root);
-  // }
-
   add(value) {
 
     let newNode  = new Node(value);

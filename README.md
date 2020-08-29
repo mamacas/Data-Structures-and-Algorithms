@@ -9,6 +9,7 @@
 * [stacksAndQueues](data-structures/stacksAndQueues/stacks-and-queues.js)
 * [queueWithStacks](data-structures/queueWithStacks/queue-with-stacks.js)
 * [fifoAnimalShelter](data-structures/fifoAnimalShelter/fifo-animal-shelter.js)
+* [tree](data-structures/tree/tree.js)
 
 #### 1.0 Singly Linked List (insert, includes, toString)
 Code Challenge: Class 05
@@ -171,13 +172,31 @@ Code Challenge: Class 12
 Code Challenge: Class 15
 
 ##### Challenge
-Description
-
-##### Approach & Efficiency
-Description
+* Create a Node Class that has properties for the value stored in the node, the left child node, and the right child node
+* Create a Binary Tree Class with methods that enable pre-order, in-order, and post-order traversal
+* Create a Binary Search Tree Class with methods that enable the addition of a new node in the correct position as well as searching for the presence of a value within the binary search tree
 
 ##### API
-Description of Methods
+* Binary Tree
+    * preOrder() 
+        * accepts no argument
+        * traverses the tree from root->left->right and returns a properly ordered array filled with the values stored in the nodes
+    * inOrder()
+        * accepts no arguments
+        * traverses the tree from left->root->right and returns a properly ordered array filled with the values stored in the nodes
+    * postOrder()
+        * accepts no arguments
+        * traverses the tree from left->right->root and returns a properly ordered array filled with the values stored in the nodes
+
+* Binary Search Tree
+    * add(value)
+        * accepts a value as an argument
+        * adds a node with that value to the proper place on the binary search tree
+    * contains(value)
+        * accepts a value as an argument
+        * performs a binary search on the tree
+            * returns true if the value is present in the tree at least once
+            * returns false if the value is not present in the tree
 
 ### Code 301
 
