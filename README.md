@@ -11,7 +11,7 @@
 * [fifoAnimalShelter](data-structures/fifoAnimalShelter/fifo-animal-shelter.js)
 
 #### 1.0 Singly Linked List (insert, includes, toString)
-Code Challenge : Class 05
+Code Challenge: Class 05
 
 ##### Challenge
 * Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
@@ -36,7 +36,7 @@ Code Challenge : Class 05
 *** 
 
 #### 1.1 Singly Linked List (append, insertBefore, insertAfter)
-Code Challenge : Class 06
+Code Challenge: Class 06
 
 ##### Challenge
 * Within your LinkedList class, add the following methods:
@@ -61,7 +61,7 @@ Code Challenge : Class 06
 ***
 
 #### 1.2 Singly Linked List (kthFromEnd)
-Code Challenge : Class 07
+Code Challenge: Class 07
 
 ##### Challenge
 * Within your LinkedList class, add method kthFromEnd which takes a number (k) as a parameter, Return the node's value that is k from the end of the linked list.
@@ -77,7 +77,7 @@ Code Challenge : Class 07
 ***
 
 #### 2.0 Zip Two Linked Lists
-Code Challenge : Class 08
+Code Challenge: Class 08
 
 ##### Challenge
 * Write a function which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. 
@@ -146,7 +146,7 @@ Code Challenge: Class 11
 *** 
 
 #### 5.0 First-in, First-out Animal Shelter
-Code Challenge : Class 12
+Code Challenge: Class 12
 
 ##### Challenge
 * Create a class called AnimalShelter which holds only dogs and cats. The shelter operates using a first-in, first-out approach and includes the following methods:
@@ -164,6 +164,20 @@ Code Challenge : Class 12
 
 ##### Solution
 ![fifoAnimalShelter](assets/wb-animalShelter.png)
+
+*** 
+
+#### 6.0 Binary Tree and BST Implementation
+Code Challenge: Class 15
+
+##### Challenge
+Description
+
+##### Approach & Efficiency
+Description
+
+##### API
+Description of Methods
 
 ### Code 301
 
@@ -193,7 +207,7 @@ Code Challenge : Class 12
 
 
 #### 1. Reverse an Array (arrayReverse)
-Code Challenge : Class 01
+Code Challenge: Class 01
 
 ##### Challenge
 Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
@@ -207,7 +221,7 @@ I chose to create an empty array for my result, then reverse-for-loop through th
 ***
 
 #### 2. Insert and Shift an Array in Middle at Index (arrayShift)
-Code Challenge : Class 02
+Code Challenge: Class 02
 
 ##### Challenge
 Write a function called insertShiftArray which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
@@ -225,7 +239,7 @@ Write a function called insertShiftArray which takes in an array and the value t
 ***
 
 #### 3. Binary Search in a sorted 1D array
-Code Challenge : Class 03
+Code Challenge: Class 03
 
 ##### Challenge
 Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
@@ -248,7 +262,7 @@ Write a function called BinarySearch which takes in 2 parameters: a sorted array
 ***
 
 #### 4. Multi-bracket Validation
-Code Challenge : Class 13
+Code Challenge: Class 13
 
 ##### Challenge
 Write a function called multiBracketValidation which takes a single string of brackets `{` `[` `(` as its only argument, and returns a boolean.
