@@ -33,6 +33,29 @@ describe('Node', () => {
 
 describe('Binary Tree', () => {
 
+  it('can find the maximum value stored in the tree', () => {
+    const five = new Node(5);
+    const two = new Node(2);
+    const seven = new Node(7);
+    const twentytwo = new Node(22);
+
+    const tree = new BinaryTree(five);
+    tree.root.left = two;
+    tree.root.right = seven;
+    tree.root.right.right = twentytwo;
+
+    const res = tree.findMaximumValue();
+    expect(res).toStrictEqual(22);
+
+  });
+
+  it('will not try finding the maximum of an empty tree', () => {
+    const tree = new BinaryTree();
+    expect(() => tree.findMaximumValue()).toThrow(Error);
+    expect(() => tree.findMaximumValue()).toThrow('Cannot find value in an empty tree');
+
+  });
+
   it('can successfully instantiate an empty tree', () => {
     const tree = new BinaryTree();
     expect(tree).toBeDefined();
@@ -41,7 +64,8 @@ describe('Binary Tree', () => {
   it('can successfully instantiate a tree with a single root node', () => {
     const one = new Node(1);
     const tree = new BinaryTree(one);
-    expect(tree.root.value).toBe(1);
+    const result = tree.preOrder();
+    expect(result).toEqual([1]);
   });
 
   it('can successfully return a collection from a preorder traversal', () => {
