@@ -10,6 +10,7 @@
 * [queueWithStacks](data-structures/queueWithStacks/queue-with-stacks.js)
 * [fifoAnimalShelter](data-structures/fifoAnimalShelter/fifo-animal-shelter.js)
 * [tree](data-structures/tree/tree.js)
+* [treeMaxVal](data-structures/tree/tree.js)
 
 #### 1.0 Singly Linked List (insert, includes, toString)
 Code Challenge: Class 05
@@ -197,6 +198,22 @@ Code Challenge: Class 15
         * performs a binary search on the tree
             * returns true if the value is present in the tree at least once
             * returns false if the value is not present in the tree
+
+#### 6.1 Find Maximum Value in Binary Tree
+Code Challenge: Class 16
+
+##### Challenge
+* Create an instance method (within class Binary Tree) that finds the maximum value stored within the tree
+
+##### API
+* findMaximumValue()
+    * takes no arguments
+    * assumes all node values are integers
+    * traverses the tree, comparing nodes in order to find the one with the highest value
+    * returns the maximum value
+
+##### Solution
+![wb-maxval](assets/wb-tree-max-val.png)
 
 ### Code 301
 
