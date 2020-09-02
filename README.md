@@ -2,6 +2,8 @@
 #### Author: Cas Ibrahim
 
 *** 
+*** 
+
 ### Data Structures
 
 * [linkedList](data-structures/linkedList/linked-list.js)
@@ -10,7 +12,9 @@
 * [queueWithStacks](data-structures/queueWithStacks/queue-with-stacks.js)
 * [fifoAnimalShelter](data-structures/fifoAnimalShelter/fifo-animal-shelter.js)
 * [tree](data-structures/tree/tree.js)
-* [treeMaxVal](data-structures/tree/tree.js)
+
+*** 
+*** 
 
 #### 1.0 Singly Linked List (insert, includes, toString)
 Code Challenge: Class 05
@@ -199,6 +203,8 @@ Code Challenge: Class 15
             * returns true if the value is present in the tree at least once
             * returns false if the value is not present in the tree
 
+*** 
+
 #### 6.1 Find Maximum Value in Binary Tree
 Code Challenge: Class 16
 
@@ -214,6 +220,28 @@ Code Challenge: Class 16
 
 ##### Solution
 ![wb-maxval](assets/wb-tree-max-val.png)
+
+*** 
+
+#### 6.2 Traverse a Binary Tree Breadth-first
+Code Challenge: Class 18
+
+##### Challenge
+* Write a breadth first traversal method which takes a Binary Tree as its unique input. Traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
+##### API
+* breadthFirst(tree)
+    * takes a Binary Tree as its only argument
+    * assumes all node values are integers
+    * traverses the tree breadth first
+    * pushes each value to a queue and dequeues to an array when appropriate
+    * returns an array of properly-ordered values
+
+##### Solution
+![wb-breadthFirst](assets/wb-breadthfirst.png)
+
+***
+*** 
 
 ### Code 301
 
@@ -233,6 +261,7 @@ Code Challenge: Class 16
 * [combo](code-challenges/301/combo/challenges-14.test.js)
 
 *** 
+*** 
 
 ### Code 401
 
@@ -242,6 +271,8 @@ Code Challenge: Class 16
 * [multiBracketValidation](code-challenges/401/multiBracketValidation/multi-bracket-validation.js)
 * [fizzBuzzTree](code-challenges/401/fizzBuzzTree/fizzbuzz-tree.js)
 
+*** 
+*** 
 
 #### 1. Reverse an Array (arrayReverse)
 Code Challenge: Class 01
