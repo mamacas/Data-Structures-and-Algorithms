@@ -240,6 +240,7 @@ Code Challenge: Class 16
 * [arrayShift](code-challenges/401/arrayShift/array-shift.js)
 * [arrayBinarySearch](code-challenges/401/arrayBinarySearch/array-binary-search.js)
 * [multiBracketValidation](code-challenges/401/multiBracketValidation/multi-bracket-validation.js)
+* [fizzBuzzTree](code-challenges/401/fizzBuzzTree/fizzbuzz-tree.js)
 
 
 #### 1. Reverse an Array (arrayReverse)
@@ -327,3 +328,28 @@ Space is O(2)
 
 ##### Solution
 ![bracketMatch](/assets/wb-bracketMatch.png)
+
+***
+
+
+#### 4. FizzBuzz Tree
+Code Challenge: Class 17
+
+##### Challenge
+* Write a function called FizzBuzzTree which takes a binary tree as an argument.
+* Determine whether or not the value of each node is divisible by 3, 5 or both. Modify the tree in place as follows:
+    * If the value is divisible by 3, replace the value with “Fizz”
+    * If the value is divisible by 5, replace the value with “Buzz”
+    * If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
+    * If the value is not divisible by 3 or 5, simply turn the number into a String.
+
+##### Approach & Efficiency
+* I created a helper function to change the values within the tree at each step of the traversal according to the rules above
+* I created the main function which takes in a binary tree
+    * set root = tree.root
+    * called the helper function with (root) as the argument passed to it
+    * traversed the tree in pre-order
+    * returned the modified tree
+
+##### Solution
+![fizzBuzzTree](/assets/wb-fizzbuzztree.png)
