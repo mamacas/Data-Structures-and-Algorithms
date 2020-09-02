@@ -33,6 +33,26 @@ describe('Node', () => {
 
 describe('Binary Tree', () => {
 
+  it('can traverse a binary tree breadth first', () => {
+    const five = new Node(5);
+    const two = new Node(2);
+    const seven = new Node(7);
+
+    const eleven = new Node(11);
+    const fourteen = new Node(14);
+    const twentytwo = new Node(22);
+
+    const tree = new BinaryTree(five);
+    tree.root.left = two;
+    tree.root.left.left = eleven;
+    tree.root.left.right = fourteen;
+    tree.root.right = seven;
+    tree.root.right.right = twentytwo;
+
+    const result = tree.breadthFirst(tree);
+    expect(result).toEqual([5, 2, 7, 11, 14, 22]);
+  });
+
   it('can find the maximum value stored in the tree', () => {
     const five = new Node(5);
     const two = new Node(2);
