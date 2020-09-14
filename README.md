@@ -4,6 +4,18 @@
 *** 
 *** 
 
+### Algorithms
+
+* [Sort Blog](algorithms/BLOG.md)
+
+* [insertionSort](algorithms/insertionSort/insertion-sort.js)
+* [mergeSort](algorithms/mergeSort/merge-sort.js)
+* [quickSort](algorithms/quickSort/quick-sort.js)
+* []()
+
+*** 
+***
+
 ### Data Structures
 
 * [linkedList](data-structures/linkedList/linked-list.js)
