@@ -5,9 +5,10 @@
 *** 
 
 ### Algorithms
-
+##### Blog
 * [Sort Blog](algorithms/BLOG.md)
 
+##### Code
 * [insertionSort](algorithms/insertionSort/insertion-sort.js)
 * [mergeSort](algorithms/mergeSort/merge-sort.js)
 * [quickSort](algorithms/quickSort/quick-sort.js)
