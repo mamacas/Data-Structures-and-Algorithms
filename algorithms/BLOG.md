@@ -1,4 +1,4 @@
-#### Insertion Sorts, Visualized
+#### Sort Algorithms, Visualized
 ##### Written & Illustrated by Cas Ibrahim
 ***
 
