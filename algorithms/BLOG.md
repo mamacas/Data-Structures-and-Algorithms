@@ -9,3 +9,8 @@
 
 ##### Merge Sort
 ![mergeSort](/assets/mergesort.png)
+
+***
+
+##### Quick Sort
+![quickSort](/assets/quicksort.png)
