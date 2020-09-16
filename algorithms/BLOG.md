@@ -6,3 +6,6 @@
 ![insertionSort](/assets/insertionsort.jpg)
 
 ***
+
+##### Merge Sort
+![mergeSort](/assets/mergesort.png)
