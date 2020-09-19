@@ -12,7 +12,6 @@
 * [insertionSort](algorithms/insertionSort/insertion-sort.js)
 * [mergeSort](algorithms/mergeSort/merge-sort.js)
 * [quickSort](algorithms/quickSort/quick-sort.js)
-* []()
 
 *** 
 ***
@@ -25,6 +24,7 @@
 * [queueWithStacks](data-structures/queueWithStacks/queue-with-stacks.js)
 * [fifoAnimalShelter](data-structures/fifoAnimalShelter/fifo-animal-shelter.js)
 * [tree](data-structures/tree/tree.js)
+* [hashtable](data-structures/hashtable/hashtable.js)
 
 *** 
 *** 
@@ -252,6 +252,30 @@ Code Challenge: Class 18
 
 ##### Solution
 ![wb-breadthFirst](assets/wb-breadthfirst.png)
+
+*** 
+
+#### 7.0 Implement Hashtable
+Code Challenge: Class 30
+
+##### Challenge
+* Implement a Hashtable with the ability to add {key:value} pairs, retrieve values when given their associated key, check whether a key exists in the table, and create hashes & assign them to an index
+
+##### API
+* add(key, value)
+    * takes in both the key and value
+    * hashes the key
+    * adds the key and value pair to the table
+    * handles collisions as needed
+* get(key)
+    * takes in a key 
+    * returns its associated value from the table
+* contains(key)
+    * takes in a key
+    * returns a boolean indicating whether the key is already present in the table
+* hash(key)
+    * takes in an arbitrary key
+    * returns the table index to be assigned to it
 
 ***
 *** 
