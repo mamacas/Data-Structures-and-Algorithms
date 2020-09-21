@@ -1,7 +1,6 @@
 'use strict';
 
 const Hashtable = require('../hashtable/hashtable.js');
-// const Hashtable = require('../hashtable/hashtable.js');
 
 describe('Hashtable', () => {
 
