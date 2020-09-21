@@ -307,6 +307,7 @@ Code Challenge: Class 30
 * [arrayBinarySearch](code-challenges/401/arrayBinarySearch/array-binary-search.js)
 * [multiBracketValidation](code-challenges/401/multiBracketValidation/multi-bracket-validation.js)
 * [fizzBuzzTree](code-challenges/401/fizzBuzzTree/fizzbuzz-tree.js)
+* [repeatedWord](code-challenges/401/repeatedWord/repeated-word.js)
 
 *** 
 *** 
@@ -399,8 +400,7 @@ Space is O(2)
 
 ***
 
-
-#### 4. FizzBuzz Tree
+#### 5. FizzBuzz Tree
 Code Challenge: Class 17
 
 ##### Challenge
@@ -421,3 +421,28 @@ Code Challenge: Class 17
 
 ##### Solution
 ![fizzBuzzTree](/assets/wb-fizzbuzztree.png)
+
+***
+
+#### 6. Repeated Word
+Code Challenge: Class 31
+
+##### Challenge
+* Write a function that takes in a string and returns the first repeated word in the string.
+
+##### Approach & Efficiency
+* I created a function which takes in a single string of any length and performs the following tasks:
+    * Checks the string for special characters, digits, and extra spaces. Removes those characters.
+    * Converts the string to upper case to account for differences in casing.
+        * `this` would not match `This` without `toUpperCase()`
+    * Splits the string to an array, splitting at the spaces between words
+        * `this string is this long` becomes `[this, string, is, this, long]`
+    * Creates an empty object
+    * Loops over the array
+        * each array value becomes a key in the object, 
+        * unless the value already exists as a key
+            * in which case, we return the value; this indicates that it is the first repeated word in the string
+    * If there are no duplicate values (in other words, we make it through the entire for loop), we raise the exception `No repeated words in this string`
+
+##### Solution
+![repeatedWord](/assets/wb-repeatword.png)
