@@ -3,14 +3,7 @@
 const checkRepeats = (str) => {
 
   // takes out the following characters:
-  // '.'
-  // '/'
-  // ','
-  // '!'
-  // '-'
-  // '_'
-  // '&'
-  // '+'
+  // '.' '/' ',' '!' '-' '_' '&' '+'
   let newSTR = str.replace(/[\d\.\/,!\-_&\+]/g, '');
 
   // removes extra spaces created as a result of removing special characters
