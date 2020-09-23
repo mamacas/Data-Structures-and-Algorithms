@@ -308,6 +308,7 @@ Code Challenge: Class 30
 * [multiBracketValidation](code-challenges/401/multiBracketValidation/multi-bracket-validation.js)
 * [fizzBuzzTree](code-challenges/401/fizzBuzzTree/fizzbuzz-tree.js)
 * [repeatedWord](code-challenges/401/repeatedWord/repeated-word.js)
+* [treeIntersection](code-challenges/401/treeIntersection/tree-intersection.js)
 
 *** 
 *** 
@@ -446,3 +447,25 @@ Code Challenge: Class 31
 
 ##### Solution
 ![repeatedWord](/assets/wb-repeatword.png)
+
+***
+
+#### 7. Tree Intersection
+Code Challenge: Class 32
+
+##### Challenge
+* Write a function that takes in two binary trees, compares the values of the nodes in the trees, and returns a list of the node values they have in common.
+
+##### Approach & Efficiency
+* My function:
+    * creates two empty arrays
+        * 1: for the values of all nodes
+        * 2: for the node values the two trees have in common, to be returned as a result
+    * creates an empty object which is used to check if values exist more than once within the first array
+    * utilizes an inner function to pre-order traverse both trees
+        * returns a list of all node values
+    * loops over the first array:
+        * each array value becomes a key in the object
+            * if the value already exists as a key, it is pushed to the second array
+    * returns the second array if there are identical values between the two binary trees
+    * else returns `No identical values present between trees`
