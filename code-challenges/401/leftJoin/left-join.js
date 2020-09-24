@@ -12,12 +12,12 @@ const leftJoin = (leftObj, rightObj) => {
     let key = keys[i];
     arr.push(key);
 
-    let val1 = leftObj[keys[i]];
-    arr.push(val1);
+    let syn = leftObj[keys[i]];
+    arr.push(syn);
 
-    let val2 = rightObj[keys[i]];
-    if (val2) {
-      arr.push(val2);
+    let ant = rightObj[keys[i]];
+    if (ant) {
+      arr.push(ant);
     } else {
       arr.push(null);
     }
