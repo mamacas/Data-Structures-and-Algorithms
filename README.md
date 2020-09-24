@@ -469,3 +469,67 @@ Code Challenge: Class 32
             * if the value already exists as a key, it is pushed to the second array
     * returns the second array if there are identical values between the two binary trees
     * else returns `No identical values present between trees`
+
+***
+
+#### 8. Left Join
+Code Challenge: Class 33
+
+##### Challenge
+* Implement a left join for 2 hash tables
+
+##### Approach & Efficiency
+* My function:
+    * takes in two objects which serve as the hash tables
+    * returns a matrix with inner arrays representing the keys, values from the left object matched with that key, and values from the right object matched with that key
+    * uses `Object.keys` to traverse object 1 and push all its keys into an array called `keys`. 
+        * for loops over `keys`:
+            * creates an inner array called `arr`
+            * pushes each value in `keys` into `arr`
+            * pushes the value associated with each key in left-object into `arr`
+            * checks if there is a matching key in right-object
+                * if so, push that key's value into `arr`
+                * else push `null` into `arr`
+            * push `arr` into the matrix
+    * does not add keys which exist exclusively in the right object to the result matrix
+
+    ```
+    INPUT: 
+    leftObj= { key1: 'left1', key2: 'left2', key3: left3' }
+    rightObj= { key1: 'right1', key2: 'right2', key3: right3' }
+
+    OUTPUT:
+    [ 
+    [ key1, left1, right1 ]
+    [ key2, left2, right2 ]
+    [ key3, left3, right3 ] 
+    ]
+    ```
+
+    ```
+    INPUT: 
+    leftObj= { key1: 'left1', key2: 'left2', key3: left3', key4: 'left4' }
+    rightObj= { key1: 'right1', key2: 'right2', key3: right3' }
+
+    OUTPUT:
+    [ 
+    [ key1, left1, right1 ],
+    [ key2, left2, right2 ],
+    [ key3, left3, right3 ], 
+    [ key4, left4, null ]
+    ]
+    ```
+
+    ```
+    INPUT: 
+    leftObj= { key1: 'left1', key2: 'left2', key3: left3', key4: 'left4' }
+    rightObj= { key1: 'right1', key2: 'right2', key3: right3', key5: 'right5' }
+
+    OUTPUT:
+    [ 
+    [ key1, left1, right1 ],
+    [ key2, left2, right2 ],
+    [ key3, left3, right3 ], 
+    [ key4, left4, null ]
+    ]
+    ```
