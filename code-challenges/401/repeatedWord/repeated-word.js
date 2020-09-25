@@ -21,6 +21,7 @@ const checkRepeats = (str) => {
     // if array value already exists as an object key, it means it is the first repeated word in the array
     if (obj[arr[i]]) {
       return arr[i];
+      //return false
     }
 
     // set array value at i to object key if it does not already exist as a key in the object
@@ -29,6 +30,7 @@ const checkRepeats = (str) => {
 
   // if we loop through the entire array, it means there are no repeated values
   return 'No repeated words in this string';
+  //return true
 
 };
 
