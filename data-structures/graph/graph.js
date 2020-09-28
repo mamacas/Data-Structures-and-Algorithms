@@ -1,18 +1,12 @@
 'use strict';
 
+const Queue = require('../stacksAndQueues/stacks-and-queues.js').Queue;
+
 class Vertex {
   constructor(value) {
     this.value = value;
   }
 }
-
-// class Edge {
-//   constructor(vertexA, vertexB, weight=null) {
-//     this.vertexA = vertexA;
-//     this.vertexB = vertexB;
-//     this.weight = weight;
-//   }
-// }
 
 class Graph {
 
@@ -49,6 +43,29 @@ class Graph {
 
   getSize() {
     return this.vertices.length;
+  }
+
+  breadthFirst(start) {
+
+    let visited = [];
+    let queue = new Queue();
+    queue.enqueue(start);
+    visited.push(start);
+
+    while (!queue.isEmpty()) {
+      let front = queue.dequeue();
+
+      this.edges[front.value].forEach(vertex => {
+        if (!visited.includes(vertex)) {
+          visited.push(vertex);
+          queue.enqueue(vertex);
+        }
+      });
+
+    }
+
+    return visited;
+
   }
 
 }

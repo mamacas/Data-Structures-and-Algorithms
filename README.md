@@ -280,7 +280,7 @@ Code Challenge: Class 30
 
 ***
 
-#### Graphs
+#### 8.0 Graphs
 Code Challenge: Class 35
 
 ##### Challenge
@@ -312,6 +312,27 @@ Code Challenge: Class 35
     * takes no arguments
     * returns an integer representing how many vertices are present in the graph
 
+***
+
+#### 8.1 Graphs - Breadth First Traversal
+Code Challenge: Class 36
+
+##### Challenge
+* Implement breadth-first traversal on a graph
+
+##### API
+* breadthFirst(start)
+    * takes in a vertex, called the start vertex
+    * initializes an array in which to store vertices that have been traversed
+    * initializes a new Queue (imported from [stacks-and-queues](data-structures/stacksAndQueues/stacks-and-queues.js))
+    * enqueues the start vertex and pushes it to the array of traversed vertices
+    * while the queue is not empty:
+        * dequeue the front vertex
+        * if the front vertex value has not been traversed, push it to the traversed array and enqueue it again
+    * returns a list of all traversed vertices
+
+##### Solution
+![wb-graphBreadthFirst](assets/wb-breadthfirst-graph.png)
 ***
 *** 
 
