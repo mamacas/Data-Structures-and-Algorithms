@@ -1,8 +1,6 @@
 'use strict';
 
 const Graph = require('../graph/graph.js').Graph;
-// const Vertex = require('../graph/graph2.js').Vertex;
-// const Edge = require('../graph/graph2.js').Edge;
 
 describe('Graph', () => {
 
