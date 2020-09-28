@@ -1,56 +1,63 @@
 'use strict';
 
 const Graph = require('../graph/graph.js').Graph;
-const Vertex = require('../graph/graph.js').Vertex;
-const Edge = require('../graph/graph.js').Edge;
+// const Vertex = require('../graph/graph2.js').Vertex;
+// const Edge = require('../graph/graph2.js').Edge;
 
 describe('Graph', () => {
 
-  it('should add a new vertex to the graph\'s list of vertices', () => {
+  it('should add a vertex to the graph', () => {
     const graph = new Graph();
     graph.addVertex('hello');
-
-    expect(graph.list).toEqual([{value: 'hello', neighbors: []}]);
+    expect(graph.vertices).toEqual([{ value: 'hello' }]);
   });
 
   it('should add an edge between two vertices', () => {
-    let nodeA = new Vertex('hello');
-    let nodeB = new Vertex('there');
-
-    const graph = new Graph([nodeA, nodeB]);
-    // graph.addEdge(nodeA.value, nodeB.value);
-
-    const edge = new Edge(nodeA, nodeB);
-    graph.nodeA.addEdge(edge);
-    graph.nodeB.addEdge(edge);
-    expect(nodeA.neighbors).toEqual([nodeB]);
-    expect(nodeB.neighbors).toEqual([nodeA]);
+    const graph = new Graph();
+    let vertexA = graph.addVertex('hello');
+    let vertexB = graph.addVertex('there');
+    graph.addEdge(vertexA, vertexB);
+    expect(graph.edges[vertexA.value]).toEqual([{value: 'there'}]);
+    expect(graph.edges[vertexB.value]).toEqual([{ value: 'hello' }]);
   });
 
-  it('should return the entire list of vertices present in the graph when getVertices is called', () => {
+  it('getNeighbors should return all neighbors of a vertex if there are vertices adjacent to the vertex', () => {
+    const graph = new Graph();
+    let vertexA = graph.addVertex('hello');
+    let vertexB = graph.addVertex('there');
+    graph.addEdge(vertexA, vertexB);
+    let neighbors = graph.getNeighbors(vertexA);
+    expect(neighbors).toEqual([{ value: 'there' }]);
+  });
+
+  it('getNeighbors should return an empty array when a vertex has no neighbors', () => {
+    const graph = new Graph();
+    let vertexA = graph.addVertex('hello');
+    let neighbors = graph.getNeighbors(vertexA);
+    expect(neighbors).toEqual([]);
+  });
+
+  it('getVertices should return the entire list of vertices present in the graph', () => {
     const graph = new Graph();
     graph.addVertex('hello');
     graph.addVertex('there');
-    graph.addVertex('ma\'am');
 
     let list = graph.getVertices();
 
     expect(list).toEqual([
-      { value: 'hello', neighbors: [] },
-      { value: 'there', neighbors: [] },
-      { value: 'ma\'am', neighbors: [] }
+      { value: 'hello' },
+      { value: 'there' }
     ]);
   });
 
-  it('should return the correct number of vertices present in the graph when getSize is called', () => {
+  it('getSize should return the correct number of vertices present in the graph', () => {
     const graph = new Graph();
     graph.addVertex('hello');
     graph.addVertex('there');
-    graph.addVertex('ma\'am');
 
     let size = graph.getSize();
 
-    expect(size).toEqual(3);
+    expect(size).toEqual(2);
   });
 
 
