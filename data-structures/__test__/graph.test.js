@@ -58,5 +58,39 @@ describe('Graph', () => {
     expect(size).toEqual(2);
   });
 
+  it('breadthFirst traversal should return a collection of all vertices connected by edges', () => {
+    const graph = new Graph();
+    let vertexA = graph.addVertex('hello');
+    let vertexB = graph.addVertex('there');
+    let vertexC = graph.addVertex('!!!');
+    let vertexD = graph.addVertex('???');
+    graph.addEdge(vertexA, vertexB);
+    graph.addEdge(vertexA, vertexC);
+    graph.addEdge(vertexB, vertexC);
+    graph.addEdge(vertexC, vertexD);
+    let result = graph.breadthFirst(vertexA);
+    expect(result).toEqual([
+      { value: 'hello' },
+      { value: 'there' },
+      { value: '!!!' },
+      { value: '???' }
+    ]);
+  });
 
+  it('breadthFirst traversal should not return standalone vertices', () => {
+    const graph = new Graph();
+    let vertexA = graph.addVertex('hello');
+    let vertexB = graph.addVertex('there');
+    let vertexC = graph.addVertex('!!!');
+    graph.addVertex('???');
+    graph.addEdge(vertexA, vertexB);
+    graph.addEdge(vertexA, vertexC);
+    graph.addEdge(vertexB, vertexC);
+    let result = graph.breadthFirst(vertexA);
+    expect(result).toEqual([
+      { value: 'hello' },
+      { value: 'there' },
+      { value: '!!!' }
+    ]);
+  });
 });
