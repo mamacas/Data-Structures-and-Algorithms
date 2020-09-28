@@ -6,20 +6,19 @@ class Vertex {
   }
 }
 
-class Edge {
-  constructor(vertexA, vertexB, weight=null) {
-    this.vertexA = vertexA;
-    this.vertexB = vertexB;
-    this.weight = weight;
-  }
-}
+// class Edge {
+//   constructor(vertexA, vertexB, weight=null) {
+//     this.vertexA = vertexA;
+//     this.vertexB = vertexB;
+//     this.weight = weight;
+//   }
+// }
 
 class Graph {
 
   constructor() {
     this.vertices = [];
     this.edges = [];
-    this.numberOfEdges = 0;
   }
 
   addVertex(value) {
@@ -35,7 +34,6 @@ class Graph {
   addEdge(vertexA, vertexB) {
     this.edges[vertexA.value].push(vertexB);
     this.edges[vertexB.value].push(vertexA);
-    this.numberOfEdges++;
   }
 
   getNeighbors(vertex) {
@@ -55,4 +53,4 @@ class Graph {
 
 }
 
-module.exports = { Graph, Vertex, Edge };
+module.exports = { Graph, Vertex };
