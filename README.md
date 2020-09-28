@@ -25,6 +25,7 @@
 * [fifoAnimalShelter](data-structures/fifoAnimalShelter/fifo-animal-shelter.js)
 * [tree](data-structures/tree/tree.js)
 * [hashtable](data-structures/hashtable/hashtable.js)
+* [graph](data-structures/graph/graph.js)
 
 *** 
 *** 
@@ -276,6 +277,40 @@ Code Challenge: Class 30
 * hash(key)
     * takes in an arbitrary key
     * returns the table index to be assigned to it
+
+***
+
+#### Graphs
+Code Challenge: Class 35
+
+##### Challenge
+* Implement a graph, represented as an adjacency list, with the abilities to add vertices, add edges, get a list of a vertex's adjacent vertices, get a list of all vertices in the graph, and get the size of the graph
+
+##### API
+* addVertex(value)
+    * takes in a value
+    * adds a vertex with that value to the graph
+    * initializes its place in the graph's edges list with an object whose key is the vertex value and whose value is an empty array
+    * returns the vertex
+* addEdge(vertexA, vertexB)
+    * takes in two vertices
+    * adds vertexB to the array which is the value of vertexA's object in the graph's edges array
+    * adds vertexA to the array which is the value of vertexB's object in the graph's edges array
+    ```
+    graph.edges = [
+        { vertexA.value: [vertexB] },
+        { vertexB.value: [vertexA] }
+        ]
+    ```
+* getNeighbors(vertex)
+    * takes in a vertex
+    * returns a list of all vertices adjacent to the input vertex
+* getVertices()
+    * takes no arguments
+    * returns a list of all vertices present in the graph
+* getSize()
+    * takes no arguments
+    * returns an integer representing how many vertices are present in the graph
 
 ***
 *** 
