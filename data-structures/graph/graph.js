@@ -8,6 +8,14 @@ class Vertex {
   }
 }
 
+class Edge {
+  constructor(origin, destination, weight=null) {
+    this.origin = origin;
+    this.destination = destination;
+    this.weight = weight;
+  }
+}
+
 class Graph {
 
   constructor() {
@@ -25,9 +33,12 @@ class Graph {
     return vertex;
   }
 
-  addEdge(vertexA, vertexB) {
-    this.edges[vertexA.value].push(vertexB);
-    this.edges[vertexB.value].push(vertexA);
+  addEdge(vertexA, vertexB, weight) {
+
+    let edgeAB = new Edge(vertexA, vertexB, weight);
+    let edgeBA = new Edge(vertexB, vertexA, weight);
+    this.edges[vertexA.value].push(edgeAB);
+    this.edges[vertexB.value].push(edgeBA);
   }
 
   getNeighbors(vertex) {
@@ -55,10 +66,10 @@ class Graph {
     while (!queue.isEmpty()) {
       let front = queue.dequeue();
 
-      this.edges[front.value].forEach(vertex => {
-        if (!visited.includes(vertex)) {
-          visited.push(vertex);
-          queue.enqueue(vertex);
+      this.edges[front.value].forEach(edge => {
+        if (!visited.includes(edge.origin.value)) {
+          visited.push(edge.origin);
+          queue.enqueue(edge.origin);
         }
       });
 
