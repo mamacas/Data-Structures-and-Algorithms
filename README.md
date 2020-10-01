@@ -365,6 +365,7 @@ Code Challenge: Class 36
 * [fizzBuzzTree](code-challenges/401/fizzBuzzTree/fizzbuzz-tree.js)
 * [repeatedWord](code-challenges/401/repeatedWord/repeated-word.js)
 * [treeIntersection](code-challenges/401/treeIntersection/tree-intersection.js)
+* [getEdges](code-challenges/401/getEdges/getedges.js)
 
 *** 
 *** 
@@ -589,3 +590,25 @@ Code Challenge: Class 33
     [ key4, left4, null ]
     ]
     ```
+
+***
+
+#### 9. Determine Direct Flights
+Code Challenge: Class 37
+
+##### Challenge
+* Given a trip itinerary and a route map, determine if the trip is possible with direct flights. If so, return the total cost of the trip.
+
+##### Approach & Efficiency
+* `hasDirectFlights()`
+    * takes in a graph and an array of city names
+        * each city name represents a vertex present in the graph
+    * loops over the array of cities
+        * checks cities two at a time to determine whether the nodes they represent are directly connected via edges, using helper function `checkTwo()`
+    * returns an array whose indeces represent the following:
+        * 0: whether the trip is possible with direct flights (cities are directly connected via edges)
+        * 1: the total cost of the trip (sum of weights of the edges between vertices)
+
+* `checkTwo()`
+    * takes in a graph and two indeces (called city1 and city2) in an array of city names
+    * for each of the items in city1's adjacency list, note the price of the flight from city1 and return [true, total price] if city2 is present in the adjacency list
