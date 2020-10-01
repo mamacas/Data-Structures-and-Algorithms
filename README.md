@@ -333,6 +333,28 @@ Code Challenge: Class 36
 
 ##### Solution
 ![wb-graphBreadthFirst](assets/wb-breadthfirst-graph.png)
+
+***
+
+#### 8.2 Graphs - Depth First Traversal
+Code Challenge: Class 37
+
+##### Challenge
+* Implement depth-first traversal on a graph
+
+##### API
+* depthFirst(root)
+    * takes in a vertex, called the root vertex
+    * initializes an array in which to store vertices that have been traversed
+    * initializes a new Stack (imported from [stacks-and-queues](data-structures/stacksAndQueues/stacks-and-queues.js))
+    * pushes the root vertex into the stack and the array of traversed vertices
+    * while the stack is not empty:
+        * checks the top of the stack
+            * if the top vertex's adjacent vertices have not been traversed:
+                * pops the top vertex from the stack and pushes it into the array of traversed vertices
+                * pushes the adjacent vertices into the stack
+            * else pops the top vertex and repeats until empty
+    * returns a list of all traversed vertices
 ***
 *** 
 
