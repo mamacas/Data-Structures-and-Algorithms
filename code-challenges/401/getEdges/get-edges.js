@@ -1,6 +1,7 @@
 'use strict';
 
-const getEdges = (graph, arr) => {
+// main function, returns end output
+const hasDirectFlights = (graph, arr) => {
 
   let result = [false, 0];
 
@@ -13,7 +14,7 @@ const getEdges = (graph, arr) => {
   return result;
 };
 
-
+// helper function
 const checkTwo = (graph, city1, city2) => {
 
   let result = [false, 0];
@@ -21,7 +22,8 @@ const checkTwo = (graph, city1, city2) => {
   graph.edges[city1].forEach(edge => {
 
     let destination = edge.destination.value;
-    let price = edge.weight;
+    let price = 0;
+    price += edge.weight;
 
     if (city2 === destination) {
       result = [true, price];
@@ -32,5 +34,4 @@ const checkTwo = (graph, city1, city2) => {
   return result;
 };
 
-module.exports = { getEdges , checkTwo };
-
+module.exports = { hasDirectFlights , checkTwo };
