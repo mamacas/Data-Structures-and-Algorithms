@@ -6,64 +6,64 @@ describe('Graph', () => {
 
   it('should add a vertex to the graph', () => {
     const graph = new Graph();
-    graph.addVertex('hello');
-    expect(graph.vertices).toEqual([{ value: 'hello' }]);
+    graph.addVertex('A');
+    expect(graph.vertices).toEqual([{ value: 'A' }]);
   });
 
   it('should add an edge between two vertices', () => {
     const graph = new Graph();
-    let vertexA = graph.addVertex('hello');
-    let vertexB = graph.addVertex('there');
+    let vertexA = graph.addVertex('A');
+    let vertexB = graph.addVertex('B');
     graph.addEdge(vertexA, vertexB, 100);
     expect(graph.edges[vertexA.value]).toEqual([{
-      origin: { value: 'hello' },
-      destination: { value: 'there' },
+      origin: { value: 'A' },
+      destination: { value: 'B' },
       weight: 100,
     }]);
     expect(graph.edges[vertexB.value]).toEqual([{
-      origin: { value: 'there' },
-      destination: { value: 'hello' },
+      origin: { value: 'B' },
+      destination: { value: 'A' },
       weight: 100,
     }]);
   });
 
   it('getNeighbors should return all neighbors of a vertex if there are vertices adjacent to the vertex', () => {
     const graph = new Graph();
-    let vertexA = graph.addVertex('hello');
-    let vertexB = graph.addVertex('there');
+    let vertexA = graph.addVertex('A');
+    let vertexB = graph.addVertex('B');
     graph.addEdge(vertexA, vertexB, null);
     let neighbors = graph.getNeighbors(vertexA);
     expect(neighbors).toEqual([{
-      origin: { value: 'hello' },
-      destination: { value: 'there' },
+      origin: { value: 'A' },
+      destination: { value: 'B' },
       weight: null,
     }]);
   });
 
   it('getNeighbors should return an empty array when a vertex has no neighbors', () => {
     const graph = new Graph();
-    let vertexA = graph.addVertex('hello');
+    let vertexA = graph.addVertex('A');
     let neighbors = graph.getNeighbors(vertexA);
     expect(neighbors).toEqual([]);
   });
 
   it('getVertices should return the entire list of vertices present in the graph', () => {
     const graph = new Graph();
-    graph.addVertex('hello');
-    graph.addVertex('there');
+    graph.addVertex('A');
+    graph.addVertex('B');
 
     let list = graph.getVertices();
 
     expect(list).toEqual([
-      { value: 'hello' },
-      { value: 'there' }
+      { value: 'A' },
+      { value: 'B' }
     ]);
   });
 
   it('getSize should return the correct number of vertices present in the graph', () => {
     const graph = new Graph();
-    graph.addVertex('hello');
-    graph.addVertex('there');
+    graph.addVertex('A');
+    graph.addVertex('B');
 
     let size = graph.getSize();
 
@@ -72,20 +72,20 @@ describe('Graph', () => {
 
   it.skip('breadthFirst traversal should return a collection of all vertices connected by edges', () => {
     const graph = new Graph();
-    let vertexA = graph.addVertex('hello');
-    let vertexB = graph.addVertex('there');
-    let vertexC = graph.addVertex('!!!');
-    let vertexD = graph.addVertex('???');
+    let vertexA = graph.addVertex('A');
+    let vertexB = graph.addVertex('B');
+    let vertexC = graph.addVertex('C');
+    let vertexD = graph.addVertex('D');
     graph.addEdge(vertexA, vertexB, null);
     graph.addEdge(vertexA, vertexC, null);
     graph.addEdge(vertexB, vertexC, null);
     graph.addEdge(vertexC, vertexD, null);
     let result = graph.breadthFirst(vertexA);
     expect(result).toEqual([
-      { value: 'hello' },
-      { value: 'there' },
-      { value: '!!!' },
-      { value: '???' }
+      { value: 'A' },
+      { value: 'B' },
+      { value: 'C' },
+      { value: 'D' }
     ]);
   });
 
@@ -105,4 +105,26 @@ describe('Graph', () => {
       { value: '!!!' }
     ]);
   });
+
+  it('depthFirst traversal should return a list of all vertices connected via edges', () => {
+    const graph = new Graph();
+
+    let vertexA = graph.addVertex('A');
+    let vertexB = graph.addVertex('B');
+    let vertexC = graph.addVertex('C');
+    // let vertexD = graph.addVertex('D');
+    graph.addEdge(vertexA, vertexB, 1);
+    graph.addEdge(vertexA, vertexC, 2);
+    // graph.addEdge(vertexB, vertexC, 3);
+    // graph.addEdge(vertexC, vertexD, 4);
+
+    let result = graph.depthFirst(vertexA);
+    expect(result).toEqual([
+      {value: 'A'},
+      {value: 'B'},
+      {value: 'C'}
+    ]);
+  });
+
+
 });

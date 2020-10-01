@@ -1,6 +1,7 @@
 'use strict';
 
 const Queue = require('../stacksAndQueues/stacks-and-queues.js').Queue;
+const Stack = require('../stacksAndQueues/stacks-and-queues.js').Stack;
 
 class Vertex {
   constructor(value) {
@@ -77,6 +78,48 @@ class Graph {
 
     return visited;
 
+  }
+
+  depthFirst(root) {
+    // console.log('root:', root);
+
+    // this.edges[root.value].forEach(edge => {
+    //   // console.log('edge of root val: ', edge.destination);
+    // });
+
+    let visited = [];
+    let stack = new Stack();
+
+    // push root node into a stack
+    stack.push(root);
+    visited.push(root);
+
+    // console.log('stack:', stack);
+    // console.log('visited arr:', visited);
+
+    // while stack is not empty:
+    while (!stack.isEmpty()) {
+      // console.log(stack.top);
+      // peek at top node,
+      // let top = stack.top;
+      // console.log('top value: ', stack.top.value);
+      // if the top node has unvisited children:
+      this.edges[stack.top.value].forEach(edge => {
+        // console.log('edge: ', edge);
+        if (!visited.includes(edge.destination)) {
+        // mark the top node visited and push any unvisited children back into the stack
+          visited.push(stack.pop());
+          stack.push(edge.destination);
+        } else {
+          visited.push(edge.destination);
+        }
+      });
+    }
+
+    console.log('visited after loop:', visited);
+    // repeat until empty
+    // return list of nodes in order
+    return visited;
   }
 
 }
