@@ -1,6 +1,6 @@
 'use strict';
 
-const LinkedList = require('../linkedList/linked-list.js');
+const LinkedList = require('../linkedList/linked-list.js').LinkedList;
 const zipLists = require('../llZip/ll-zip.js');
 
 it.skip('should recognize two linked lists', () => {
