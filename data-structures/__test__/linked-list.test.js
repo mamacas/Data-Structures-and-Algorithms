@@ -1,6 +1,6 @@
 'use strict';
 
-const LinkedList = require('../linkedList/linked-list.js');
+const LinkedList = require('../linkedList/linked-list.js').LinkedList;
 
 it('should instantiate an empty linked list', () => {
   const ll = new LinkedList();
